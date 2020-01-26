@@ -1,0 +1,16 @@
+@charset 'UTF-8';
+
+// Import theme utils
+@import 'utils/**/*';
+
+// JSON
+@import 'variables.json';
+
+// Import npm dependencies
+@import '~sanitize.css';
+
+// Placeholders
+@import 'placeholders/**/*';
+
+// Import theme styles
+@import 'common/**/*';

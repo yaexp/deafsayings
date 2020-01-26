@@ -1,0 +1,10 @@
+{
+  "fonts": {
+    "roboto": {
+      "family": "Roboto",
+      "variants": [
+        { "weight": 400, "style": "normal" }
+      ]
+    }
+  }
+}
