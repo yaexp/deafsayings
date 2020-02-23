@@ -1,7 +1,6 @@
 import FontFaceObserver from 'fontfaceobserver';
 
 const DEFAULT_TIMEOUT = 3000;
-
 const FONT_WEIGHT_NAMES = {
   100: 'Thin',
   200: 'ExtraLight',
@@ -19,7 +18,7 @@ const FONT_STYLE_NAMES = {
   italic: 'Italic',
 };
 
-async function loadFont(family, variant, timeout = DEFAULT_TIMEOUT) {
+async function loadFont({ family, variant }, timeout = DEFAULT_TIMEOUT) {
   const weight = variant.weight || '';
   const style = variant.style || '';
   const fullName = `${family} ${FONT_WEIGHT_NAMES[weight]}${FONT_STYLE_NAMES[style]}`;
@@ -35,7 +34,7 @@ async function loadFont(family, variant, timeout = DEFAULT_TIMEOUT) {
 
 async function loadFontGroup(group, timeout) {
   const { family, variants } = group;
-  const loadFonts = variants.map(async (variant) => await loadFont(family, variant, timeout));
+  const loadFonts = variants.map(async (variant) => await loadFont({ family, variant }, timeout));
 
   try {
     await Promise.all(loadFonts);

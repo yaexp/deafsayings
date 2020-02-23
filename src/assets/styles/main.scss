@@ -1,10 +1,10 @@
 @charset 'UTF-8';
 
-// Import theme utils
-@import 'utils/**/*';
-
 // JSON
 @import 'variables.json';
+
+// Import theme utils
+@import 'utils/**/*';
 
 // Import npm dependencies
 @import '~sanitize.css';

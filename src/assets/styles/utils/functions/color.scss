@@ -1,0 +1,7 @@
+@function color-var($color-name) {
+  @return var(color-property($color-name));
+}
+
+@function color-property($color-key) {
+  @return #{'--color-#{$color-key}'};
+}

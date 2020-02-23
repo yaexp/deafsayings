@@ -1,10 +1,91 @@
 {
+  "colors": {
+    "light": {
+      "background": "#eee",
+      "background-l1": "#fff",
+      "main": "#111"
+    },
+    "dark": {
+      "background": "#111",
+      "main": "#b8b8b8"
+    }
+  },
+
   "fonts": {
-    "roboto": {
-      "family": "Roboto",
-      "variants": [
-        { "weight": 400, "style": "normal" }
-      ]
+    "path": " '../fonts' ",
+    "typefaces": {
+      "primary": {
+        "name": "inter",
+        "family": "Inter",
+        "variants": [
+          { "weight": 400, "style": "normal" },
+          { "weight": 700, "style": "normal" }
+        ]
+      }
+    }
+  },
+
+  "grid": {
+    "columns": "12",
+    "gutter": "30px",
+    "breakpoints": {
+      "xs": "0px",
+      "sm": "576px",
+      "md": "768px",
+      "lg": "992px",
+      "xl": "1200px"
+    },
+    "max-widths": {
+      "sm": "540px",
+      "md": "720px",
+      "lg": "960px",
+      "xl": "1140px"
+    }
+  },
+
+  "spacing": {
+    "spacers": {
+      "01": "2px",
+      "02": "4px",
+      "03": "8px",
+      "04": "12px",
+      "05": "16px",
+      "06": "24px",
+      "07": "32px",
+      "08": "40px",
+      "09": "48px"
+    },
+
+    "layouts": {
+      "01": "16px",
+      "02": "24px",
+      "03": "32px",
+      "04": "48px",
+      "05": "64px",
+      "06": "96px",
+      "07": "160px"
+    },
+
+    "spacers-em": {
+      "01": "0.125em",
+      "02": "0.25em",
+      "03": "0.5em",
+      "04": "0.75em",
+      "05": "1em",
+      "06": "1.5em",
+      "07": "2em",
+      "08": "2.5em",
+      "09": "3em"
+    },
+
+    "layouts-em": {
+      "01": "1em",
+      "02": "1.5em",
+      "03": "2em",
+      "04": "3em",
+      "05": "4em",
+      "06": "6em",
+      "07": "10em"
     }
   }
 }

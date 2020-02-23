@@ -11,7 +11,7 @@ const Root = () => {
     document.title = 'Deaf Sayings';
 
     (async () => {
-      await loadFontGroup(styleJson.fonts['roboto']);
+      await loadFontGroup(styleJson.fonts.typefaces['primary']);
       setIsLoading(false);
     })();
   });

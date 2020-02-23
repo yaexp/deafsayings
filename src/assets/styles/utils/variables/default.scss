@@ -1,30 +1,62 @@
+// Color palette
+//
+
+$color-background: map-deep-get($colors, 'light', 'background') !default;
+$color-background-l1: map-deep-get($colors, 'light', 'background-l1') !default;
+$color-main: map-deep-get($colors, 'light', 'main') !default;
+
+
+// Breakpoints
+//
+
+$grid-columns: map-deep-get($grid, 'columns') !default;
+$grid-gutter: map-deep-get($grid, 'gutter') !default;
+$grid-breakpoints: map-deep-get($grid, 'breakpoints') !default;
+$grid-max-widths: map-deep-get($grid, 'max-widths') !default;
+
+
+// Spacing
+//
+
+$spacers: map-deep-get($spacing, 'spacers') !default;
+$spacers-em: map-deep-get($spacing, 'spacers-em') !default;
+
+$layouts: map-deep-get($spacing, 'layouts') !default;
+$layouts-em: map-deep-get($spacing, 'layouts-em') !default;
+
+
 // Typography
 //
 
-// Font family
-$font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$font-family-sans: 'Roboto' !default;
+// Font path
+$font-path: map-deep-get($fonts, 'path') !default;
 
-$body-family: $font-family-sans, $font-family-default !default;
+// Typefaces
+$typefaces: map-deep-get($fonts, 'typefaces') !default;
+
+// Font family
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$font-family-primary: map-deep-get($typefaces, 'primary', 'family') !default;
+
+$body-family: $font-family-primary !default;
 
 // Font size
-$font-size_base: rem(16px) !default;
+$font-size: rem(16px) !default;
 
-$body-size: $font-size_base !default;
+$body-size: $font-size !default;
 
 // Line height
 $line-height-default: 1.5em !default;
 $line-height-condensed: 1.25em !default;
 $line-height-condensed-ultra: 1 !default;
 
-$body-line: $line-height-default !default;
+$body-line-height: $line-height-default !default;
 
 // Font weight
-$font-weight_light: 700 !default;
-$font-weight_nornmal: 400 !default;
-$font-weight_bold: 700 !default;
+$font-weight-nornmal: 400 !default;
+$font-weight-bold: 700 !default;
 
-$body-weight: $font-weight_nornmal !default;
+$body-weight: $font-weight-nornmal !default;
 
 // Text color
-$body-color: #212121 !default;
+$body-color: $color-main !default;

@@ -1,5 +1,10 @@
-@include load-fonts($fonts, $font-path);
+@include load-fonts($typefaces, $font-path);
 
 body {
   @include body-typo;
+
+  background-color: $color-background;
+
+  background-color: color-var('background');
+  color: color-var('main');
 }
