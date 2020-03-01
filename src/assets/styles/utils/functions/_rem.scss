@@ -5,8 +5,7 @@
 // link: https://github.com/pierreburel/sass-rem/blob/master/_rem.scss
 
 $rem-baseline: 16px !default;
-$rem-fallback: false !default;
-$rem-px-only: false !default;
+
 
 @function rem-separator($list, $separator: false) {
   @if $separator == "comma" or $separator == "space" {
@@ -33,8 +32,8 @@ $rem-px-only: false !default;
   @each $value in $values {
     @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
       $result: append($result, $value / 1rem * $rem-baseline, $separator);
-    } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
-      $result: append($result, $value / $rem-baseline * 1rem, $separator);
+    } @else if type-of($value) == "number" and unit($value) == "px" and ($to == "rem" or $to == "em") {
+      $result: append($result, $value / $rem-baseline * 1#{$to}, $separator);
     } @else if type-of($value) == "list" {
       $value-separator: rem-separator($value);
       $value: rem-convert($to, $value...);
@@ -48,10 +47,38 @@ $rem-px-only: false !default;
   @return if(length($result) == 1, nth($result, 1), $result);
 }
 
-@function rem($values...) {
-  @if $rem-px-only {
-    @return rem-convert(px, $values...);
-  } @else {
-    @return rem-convert(rem, $values...);
+@function rem-map-convert($to, $map) {
+  $result: $map;
+
+  @each $key, $value in $map {
+    $result: map-merge($result, ($key: rem-convert($to, $value...)));
   }
+
+  @debug $to, $map, $result;
+
+  @return $result;
+}
+
+@function rem($values...) {
+  @return rem-convert("rem", $values...);
+}
+
+@function rem-map($map) {
+  @return rem-map-convert("rem", $map);
+}
+
+@function em($values...) {
+  @return rem-convert("em", $values...);
+}
+
+@function em-map($map) {
+  @return rem-map-convert("em", $map);
+}
+
+@function px($values...) {
+  @return rem-convert("px", $values...);
+}
+
+@function px-map($map) {
+  @return rem-map-convert("px", $map);
 }

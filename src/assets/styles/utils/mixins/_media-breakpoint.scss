@@ -1,3 +1,11 @@
+//
+// Breakpoint media queries
+//
+// author: Twitter, Inc
+// author: The Bootstrap Authors
+// link: https://github.com/twbs/bootstrap/blob/master/scss/mixins/_breakpoints.scss
+
+
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
 

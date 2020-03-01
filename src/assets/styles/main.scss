@@ -1,16 +1,11 @@
 @charset 'UTF-8';
 
-// JSON
-@import 'variables.json';
-
-// Import theme utils
-@import 'utils/**/*';
-
 // Import npm dependencies
 @import '~sanitize.css';
 
-// Placeholders
-@import 'placeholders/**/*';
+// Import variables as JSON into Scss
+@import 'main.variables.json';
 
 // Import theme styles
-@import 'common/**/*';
+@import 'utils/**/*.scss';
+@import 'common/**/*.scss';

@@ -1,4 +1,4 @@
-@include load-fonts($typefaces, $font-path);
+@include load-fonts($font-typefaces);
 
 body {
   @include body-typo;

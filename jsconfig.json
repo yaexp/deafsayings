@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es6",
     "baseUrl": "./",
     "paths": {
       "~/*": ["./*"],
       "~src/*": ["./src/*"],
       "~styles/*": ["./src/assets/styles/*"]
-    }
+    },
+    "jsx": "react",
+    "target": "esnext",
+    "module": "commonjs"
   },
   "exclude": [
     "node_modules",

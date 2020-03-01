@@ -2,23 +2,31 @@ import React, { useEffect, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { loadFontGroup } from '~src/utils/load-fonts';
 
-const styleJson = require('~styles/variables.json');
+const styleJson = require('~styles/main.variables.json');
 
-const Root = () => {
-  const [isLoading, setIsLoading] = useState(null);
+import { Main as MainLayout } from '~src/layouts';
+import { SplashScreen } from '~src/components';
+
+function Root() {
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     document.title = 'Deaf Sayings';
 
     (async () => {
-      await loadFontGroup(styleJson.fonts.typefaces['primary']);
-      setIsLoading(false);
+      await loadFontGroup(styleJson.font.typefaces['primary']);
+      setTimeout(() => setIsLoading(false), 1000);
     })();
   });
 
-  return isLoading === null
-    ? <div>Loading...</div>
-    : <div>Hello world!</div>;
-};
+  return (
+    <SplashScreen isLoading={isLoading}>
+      <MainLayout>
+        {/* view */}
+        Hello world!
+      </MainLayout>
+    </SplashScreen>
+  );
+}
 
 export default module.hot ? hot(Root) : Root;

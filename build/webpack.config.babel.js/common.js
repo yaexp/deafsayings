@@ -6,6 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpackMerge from 'webpack-merge';
 
 import jsonImporter from 'node-sass-json-importer';
+import globImporter from 'node-sass-glob-importer';
 
 export default (paths, config) => {
   const assetsFilenames = (config.enabled.cacheBusting) ? config.cacheBusting : '[name]';
@@ -20,21 +21,13 @@ export default (paths, config) => {
     module: {
       rules: [
 
-        // common
-        {
-          enforce: 'pre',
-          test: /\.(jsx?|s?[ca]ss)$/,
-          include: paths.root.dev,
-          loader: 'import-glob-loader',
-        },
-
         // javascript
         {
           enforce: 'pre',
           test: /\.jsx?$/,
           exclude: /node_modules/,
           include: paths.root.dev,
-          use: 'eslint-loader',
+          use: (config.env === 'production') ? 'eslint-loader' : null,
         },
         {
           test: /\.jsx?$/,
@@ -56,7 +49,7 @@ export default (paths, config) => {
             { loader: 'cache-loader' },
             { loader: 'css-loader', options: { sourceMap: config.enabled.sourceMaps } },
             { loader: 'postcss-loader', options: { config: { path: __dirname, ctx: config } } },
-            { loader: 'sass-loader', options: { sassOptions: { importer: jsonImporter() } } },
+            { loader: 'sass-loader', options: { sassOptions: { importer: [jsonImporter(), globImporter()] } }},
           ],
         },
 

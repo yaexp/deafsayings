@@ -19,44 +19,43 @@ $grid-max-widths: map-deep-get($grid, 'max-widths') !default;
 //
 
 $spacers: map-deep-get($spacing, 'spacers') !default;
-$spacers-em: map-deep-get($spacing, 'spacers-em') !default;
+$spacers-em: em-map($spacers) !default;
 
 $layouts: map-deep-get($spacing, 'layouts') !default;
-$layouts-em: map-deep-get($spacing, 'layouts-em') !default;
+$layouts-em: em-map($layouts) !default;
 
 
 // Typography
 //
 
 // Font path
-$font-path: map-deep-get($fonts, 'path') !default;
+$font-path: map-deep-get($font, 'path') !default;
 
 // Typefaces
-$typefaces: map-deep-get($fonts, 'typefaces') !default;
+$font-typefaces: map-deep-get($font, 'typefaces') !default;
 
 // Font family
 $font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
-$font-family-primary: map-deep-get($typefaces, 'primary', 'family') !default;
-
-$body-family: $font-family-primary !default;
+$font-family-primary: map-deep-get($font-typefaces, 'primary', 'family') !default;
 
 // Font size
 $font-size: rem(16px) !default;
 
-$body-size: $font-size !default;
-
 // Line height
-$line-height-default: 1.5em !default;
-$line-height-condensed: 1.25em !default;
-$line-height-condensed-ultra: 1 !default;
-
-$body-line-height: $line-height-default !default;
+$font-height-default: 1.5em !default;
+$font-height-condensed: 1.25em !default;
+$font-height-condensed-ultra: 1 !default;
 
 // Font weight
 $font-weight-nornmal: 400 !default;
 $font-weight-bold: 700 !default;
 
-$body-weight: $font-weight-nornmal !default;
 
-// Text color
+// Body
+//
+
+$body-family: $font-family-primary !default;
+$body-size: $font-size !default;
+$body-line-height: $font-height-default !default;
+$body-weight: $font-weight-nornmal !default;
 $body-color: $color-main !default;

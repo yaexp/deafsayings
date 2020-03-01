@@ -65,6 +65,11 @@ defaultConfig.enabled = {
 // config.webpack
 defaultConfig.webpack = {
   mode: defaultConfig.env,
+  resolve: {
+    alias: {
+      'styles': path.join(paths.root.dev, paths.assetsFolder, 'styles'),
+    },
+  },
   stats: {
     errors: true,
 

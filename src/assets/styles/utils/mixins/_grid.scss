@@ -1,8 +1,8 @@
-@mixin grid-container() {
+@mixin grid-container($gutter: $grid-gutter) {
   width: 100%;
 
-  padding-right: ($grid-gutter / 2);
-  padding-left: ($grid-gutter / 2);
+  padding-right: ($gutter / 2);
+  padding-left: ($gutter / 2);
 
   margin-right: auto;
   margin-left: auto;
@@ -16,12 +16,12 @@
   }
 }
 
-@mixin grid-row {
+@mixin grid-row($gutter: $grid-gutter) {
   display: flex;
   flex-wrap: wrap;
 
-  margin-right: ($grid-gutter / -2);
-  margin-left: ($grid-gutter / -2);
+  margin-right: ($gutter / -2);
+  margin-left: ($gutter / -2);
 }
 
 @mixin grid-row-column($count) {
@@ -73,7 +73,7 @@
   @each $breakpoint in map-keys($breakpoints) {
     $infix: breakpoint-infix($breakpoint, $breakpoints);
 
-    @include media-breakpoint-up($breakpoint) {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
       @if not($infix == "") {
         &._#{$infix} {
           flex-basis: 0;
