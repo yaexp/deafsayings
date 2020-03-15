@@ -3,7 +3,8 @@
     "light": {
       "background": "#eee",
       "background-l1": "#fff",
-      "main": "#111"
+      "main": "#111",
+      "focus": "#00B2AA"
     },
     "dark": {
       "background": "#111",

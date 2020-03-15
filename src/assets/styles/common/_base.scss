@@ -1,10 +1,29 @@
 @include load-fonts($font-typefaces);
 
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   @include body-typo;
 
   background-color: $color-background;
 
-  background-color: color-var('background');
-  color: color-var('main');
+  background-color: color-rgb('background');
+  color: color-rgb('main');
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba($color-main, 0.125);
+    background-color: color-rgba('main', 0.125);
+  }
 }

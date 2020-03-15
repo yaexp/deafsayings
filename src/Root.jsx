@@ -5,6 +5,7 @@ import { loadFontGroup } from '~src/utils/load-fonts';
 const styleJson = require('~styles/main.variables.json');
 
 import { Main as MainLayout } from '~src/layouts';
+import { DeafSayings as DeafSayingsView } from '~src/views';
 import { SplashScreen } from '~src/components';
 
 function Root() {
@@ -22,8 +23,7 @@ function Root() {
   return (
     <SplashScreen isLoading={isLoading}>
       <MainLayout>
-        {/* view */}
-        Hello world!
+        <DeafSayingsView />
       </MainLayout>
     </SplashScreen>
   );

@@ -18,6 +18,8 @@
   background-color: $color-background;
   background-color: color-var('background');
 
+  z-index: 1;
+
   &._exiting {
     opacity: 0;
     transition: opacity #{$loadedDelay}ms ease-in-out;

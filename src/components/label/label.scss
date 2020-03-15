@@ -1,0 +1,53 @@
+@import '~styles/main-utils';
+
+.label {
+  position: relative;
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 4px;
+
+  font-size: 1em;
+  text-decoration: none;
+  line-height: 1;
+
+  background-color: rgba($color-main, 0.1);
+  background-color: color-rgba('main', 0.1);
+
+  color: $color-main;
+  color: color-rgb('main');
+
+  &[href] {
+    transition:
+      background-color 250ms ease-in-out,
+      box-shadow 100ms ease-in-out;
+
+    &:hover {
+      background-color: rgba($color-main, 0.15);
+      background-color: color-rgba('main', 0.15);
+
+      transition:
+        background-color 100ms ease-in-out,
+        box-shadow 100ms ease-in-out;
+    }
+
+    &:active {
+      background-color: rgba($color-main, 0.2);
+      background-color: color-rgba('main', 0.2);
+    }
+
+    &:focus {
+      outline: 0;
+      box-shadow: $btn-focus-box-shadow;
+    }
+  }
+
+  &._icon {
+    padding-left: calc(6px * 2 + 1em);
+
+    svg {
+      position: absolute;
+      height: 1em;
+      left: 6px;
+    }
+  }
+}

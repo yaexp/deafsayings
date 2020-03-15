@@ -23,13 +23,6 @@ export default (paths, config) => {
 
         // javascript
         {
-          enforce: 'pre',
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          include: paths.root.dev,
-          use: (config.env === 'production') ? 'eslint-loader' : null,
-        },
-        {
           test: /\.jsx?$/,
           exclude: /node_modules/,
           include: paths.root.dev,

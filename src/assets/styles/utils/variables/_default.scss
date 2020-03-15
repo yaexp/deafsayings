@@ -4,6 +4,7 @@
 $color-background: map-deep-get($colors, 'light', 'background') !default;
 $color-background-l1: map-deep-get($colors, 'light', 'background-l1') !default;
 $color-main: map-deep-get($colors, 'light', 'main') !default;
+$color-focus: map-deep-get($colors, 'light', 'focus') !default;
 
 
 // Breakpoints
@@ -47,8 +48,16 @@ $font-height-condensed: 1.25em !default;
 $font-height-condensed-ultra: 1 !default;
 
 // Font weight
-$font-weight-nornmal: 400 !default;
+$font-weight-normal: 400 !default;
 $font-weight-bold: 700 !default;
+
+
+// Button
+//
+
+$btn-focus-width: 2px !default;
+$btn-focus-color: $color-focus !default;
+$btn-focus-box-shadow: 0 0 0 $btn-focus-width $btn-focus-color;
 
 
 // Body
@@ -57,5 +66,5 @@ $font-weight-bold: 700 !default;
 $body-family: $font-family-primary !default;
 $body-size: $font-size !default;
 $body-line-height: $font-height-default !default;
-$body-weight: $font-weight-nornmal !default;
+$body-weight: $font-weight-normal !default;
 $body-color: $color-main !default;

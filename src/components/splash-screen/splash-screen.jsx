@@ -9,7 +9,7 @@ import './splash-screen.scss';
 const SplashScreen = ({ isLoading, children }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const classes = classNames({
+  const className = classNames({
     'splash-screen': true,
     '_exiting': !isLoading,
   });
@@ -23,7 +23,7 @@ const SplashScreen = ({ isLoading, children }) => {
   });
 
   return <>
-    { !isLoaded && <div className={classes}>Loading...</div> }
+    { !isLoaded && <div className={className}>Loading...</div> }
     { !isLoading && children }
   </>;
 };

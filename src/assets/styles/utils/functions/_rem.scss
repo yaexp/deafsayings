@@ -54,8 +54,6 @@ $rem-baseline: 16px !default;
     $result: map-merge($result, ($key: rem-convert($to, $value...)));
   }
 
-  @debug $to, $map, $result;
-
   @return $result;
 }
 

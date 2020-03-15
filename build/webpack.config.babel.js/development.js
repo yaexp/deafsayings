@@ -42,6 +42,20 @@ export default (paths, config) => {
     optimization: {
       ...config.webpack.optimization,
     },
+    module: {
+      rules: [
+
+        // eslint
+        {
+          enforce: 'pre',
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          include: paths.root.dev,
+          use: 'eslint-loader',
+        },
+
+      ],
+    },
     plugins: [
       ...config.webpack.plugins,
       new FriendlyErrorsWebpackPlugin({
