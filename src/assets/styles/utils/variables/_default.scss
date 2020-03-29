@@ -26,6 +26,15 @@ $layouts: map-deep-get($spacing, 'layouts') !default;
 $layouts-em: em-map($layouts) !default;
 
 
+// Opacity
+//
+
+$opacity-hover: 0.04 !default;
+$opacity-focus: 0.12 !default;
+$opacity-selected: 0.08 !default;
+$opacity-disabled: 0.38 !default;
+
+
 // Typography
 //
 
@@ -41,6 +50,8 @@ $font-family-primary: map-deep-get($font-typefaces, 'primary', 'family') !defaul
 
 // Font size
 $font-size: rem(16px) !default;
+$font-size-sm: $font-size - 2 !default;
+$font-size-lg: $font-size + 2 !default;
 
 // Line height
 $font-height-default: 1.5em !default;
@@ -57,8 +68,12 @@ $font-weight-bold: 700 !default;
 
 $btn-focus-width: 2px !default;
 $btn-focus-color: $color-focus !default;
-$btn-focus-box-shadow: 0 0 0 $btn-focus-width $btn-focus-color;
+$btn-focus-box-shadow: 0 0 0 $btn-focus-width $btn-focus-color !default;
 
+$btn-bg-opacity: 0.1 !default;
+$btn-bg-opacity-hover: $btn-bg-opacity + $opacity-hover !default;
+$btn-bg-opacity-focus: $btn-bg-opacity + $opacity-focus !default;
+$btn-bg-opacity-selected: $btn-bg-opacity + $opacity-selected !default;
 
 // Body
 //
@@ -68,3 +83,14 @@ $body-size: $font-size !default;
 $body-line-height: $font-height-default !default;
 $body-weight: $font-weight-normal !default;
 $body-color: $color-main !default;
+
+// Heading
+//
+
+$h1-size: 40px;
+$h2-size: 28px;
+
+// Icon
+//
+
+$icon-32: 32px;

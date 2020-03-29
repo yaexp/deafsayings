@@ -1,0 +1,36 @@
+@import '~styles/main-utils';
+
+.ds-quote-id {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-weight: $font-weight-bold;
+}
+
+.ds-quote-id__current {
+  width: 34px;
+}
+
+.ds-quote-id__count {
+  position: relative;
+  opacity: $opacity-disabled;
+  padding-left: map-get($spacers-em, 7);
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    left: map-get($spacers-em, 2);
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: calc(#{map-get($spacers-em, 7)} - #{map-get($spacers-em, 2)} * 2);
+    height: 2px;
+
+    background-color: $color-main;
+    background-color: color-rgb('main');
+  }
+}

@@ -31,6 +31,9 @@
         "rootPathPrefix": "~src/",
         "rootPathSuffix": "./src"
       }, {
+        "rootPathPrefix": "~mockdata/",
+        "rootPathSuffix": "./mockdata"
+      }, {
         "rootPathPrefix": "~styles/",
         "rootPathSuffix": "./src/assets/styles"
       }]
@@ -59,6 +62,8 @@
     "import/no-unresolved": ["warn", { "commonjs": true }],
 
     "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "react/jsx-uses-vars": "error",
+
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

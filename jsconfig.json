@@ -4,6 +4,7 @@
     "paths": {
       "~/*": ["./*"],
       "~src/*": ["./src/*"],
+      "~mockdata/*": ["./mockdata/*"],
       "~styles/*": ["./src/assets/styles/*"]
     },
     "jsx": "react",

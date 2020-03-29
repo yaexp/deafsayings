@@ -3,15 +3,15 @@
 .label {
   position: relative;
   display: inline-block;
-  padding: 4px 6px;
-  border-radius: 4px;
+  padding: map-get($spacers, 2) map-get($spacers, 3);
+  border-radius: map-get($spacers, 2);
 
-  font-size: 1em;
+  font-size: $font-size;
+  line-height: $font-height-condensed-ultra;
   text-decoration: none;
-  line-height: 1;
 
-  background-color: rgba($color-main, 0.1);
-  background-color: color-rgba('main', 0.1);
+  background-color: rgba($color-main, $btn-bg-opacity);
+  background-color: color-rgba('main', $btn-bg-opacity);
 
   color: $color-main;
   color: color-rgb('main');
@@ -22,32 +22,35 @@
       box-shadow 100ms ease-in-out;
 
     &:hover {
-      background-color: rgba($color-main, 0.15);
-      background-color: color-rgba('main', 0.15);
+      background-color: rgba($color-main, $btn-bg-opacity-hover);
+      background-color: color-rgba('main', $btn-bg-opacity-hover);
 
       transition:
         background-color 100ms ease-in-out,
         box-shadow 100ms ease-in-out;
     }
 
-    &:active {
-      background-color: rgba($color-main, 0.2);
-      background-color: color-rgba('main', 0.2);
-    }
-
     &:focus {
       outline: 0;
       box-shadow: $btn-focus-box-shadow;
+
+      background-color: rgba($color-main, $btn-bg-opacity-focus);
+      background-color: color-rgba('main', $btn-bg-opacity-focus);
+    }
+
+    &:active {
+      background-color: rgba($color-main, $btn-bg-opacity-selected);
+      background-color: color-rgba('main', $btn-bg-opacity-selected);
     }
   }
 
   &._icon {
-    padding-left: calc(6px * 2 + 1em);
+    padding-left: calc(#{map-get($spacers, 3)} * 2 + 1em);
 
     svg {
       position: absolute;
       height: 1em;
-      left: 6px;
+      left: map-get($spacers, 3);
     }
   }
 }

@@ -2,6 +2,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import webpackMerge from 'webpack-merge';
 
@@ -81,6 +82,12 @@ export default (paths, config) => {
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [paths.root.prod],
       }),
+      new CopyWebpackPlugin([{
+        // :TODO: ~config paths.public.image = '../images'
+        from: `${paths.assetsFolder}/images/authors/**/*`,
+        to: '[1][name].[ext]',
+        test: new RegExp(`${paths.assetsFolder}[/]([a-z0-9-]+[/]).*$`, 'i'),
+      }]),
       new MiniCssExtractPlugin({
         filename: `styles/${assetsFilenames}.css`,
       }),

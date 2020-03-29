@@ -1,0 +1,16 @@
+[{
+  "id": 1,
+  "authorId": 1,
+  "text": "Music is like a dream. One that I cannot hear.",
+  "size": 92
+}, {
+  "id": 2,
+  "authorId": 2,
+  "text": "Deaf people can do anything hearing people can, except hear.",
+  "size": 68
+}, {
+  "id": 3,
+  "authorId": 3,
+  "text": "Kindness is the language which the deaf can hear and the blind can see.",
+  "size": 68
+}]

@@ -23,7 +23,14 @@ body {
     width: 100%;
     height: 100%;
 
-    background-color: rgba($color-main, 0.125);
-    background-color: color-rgba('main', 0.125);
+    background-color: rgba($color-main, 0.12);
+    background-color: color-rgba('main', 0.12);
   }
+}
+
+[tabindex] {
+  outline: none;
+}
+[tabindex="-1"] {
+  pointer-events: none;
 }

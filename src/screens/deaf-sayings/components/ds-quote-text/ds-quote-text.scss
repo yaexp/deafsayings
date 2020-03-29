@@ -1,0 +1,17 @@
+@import '~styles/main-utils';
+
+.ds-quote-text {
+  display: flex;
+  align-items: flex-end;
+
+  height: auto;
+  width: 100%;
+
+  font-weight: $font-weight-bold;
+  line-height: $font-height-condensed;
+
+  overflow: hidden;
+
+  background-color: $color-background;
+  background-color: color-rgb('background');
+}

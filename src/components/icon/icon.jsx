@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import './icon.scss';
 
 const Icon = ({ children, iconName, ...props }) => {
-  const iconComponent = require(`./svg/icon-${iconName}`).default;
+  const iconComponent = require(`./icons/${iconName}.icon`).default;
 
   props = {
     className: classNames({
@@ -19,7 +19,13 @@ const Icon = ({ children, iconName, ...props }) => {
 
 Icon.propTypes = {
   children: PropTypes.node,
-  iconName: PropTypes.oneOf(['github']),
+  iconName: PropTypes.string,
+};
+
+Icon.statics = {
+  GITHUB: 'github',
+  ARROW_UP: 'arrow-up',
+  ARROW_DOWN: 'arrow-down',
 };
 
 export default Icon;

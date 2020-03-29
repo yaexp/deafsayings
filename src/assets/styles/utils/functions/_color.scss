@@ -7,5 +7,5 @@
 }
 
 @function color-rgba($color-name, $opacity) {
-  @return unquote('rgba(#{var(color-property($color-name))}, #{$opacity)})');
+  @return unquote('rgba(#{var(color-property($color-name))}, #{$opacity})');
 }

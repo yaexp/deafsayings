@@ -1,0 +1,15 @@
+@import '~styles/main-utils';
+
+.ds-quote-random {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  svg {
+    width: $icon-32;
+    height: $icon-32;
+  }
+}
