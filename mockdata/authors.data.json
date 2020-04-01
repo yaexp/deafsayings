@@ -1,0 +1,60 @@
+[{
+  "id": 1,
+  "name": "Ludwig van Beethoven",
+  "biography": "German composer Ludwig van Beethoven is considered one of the most important figures in the history of music. He continued to compose even while losing his hearing and created some of his greatest works after becoming totally deaf.",
+  "placeOfBirth": "Bonn, Germany",
+  "yearOfBirth": "1770",
+  "yearOfDeath": "1827",
+  "status": "Lived"
+}, {
+  "id": 2,
+  "name": "Irving King Jordan",
+  "biography": "I. King Jordan in 1988, became the first deaf president of Gallaudet University, the world's only university with all programs and services designed specifically for students who are deaf and hard of hearing.",
+  "placeOfBirth": "Glen Riddle, Pennsylvania, U.S.",
+  "yearOfBirth": "1943",
+  "status": "Born"
+}, {
+  "id": 3,
+  "name": "Mark Twain",
+  "biography": "Mark Twain was an American writer most famous for his children’s books \"The Adventures of Tom Sawyer\" and \"The Adventures of Huckleberry Finn\". Born Samuel Clemens, he used the pen name Mark Twain for his writing career.",
+  "placeOfBirth": "Florida, Missouri, U.S.",
+  "yearOfBirth": "1835",
+  "yearOfDeath": "1910",
+  "status": "Lived"
+}, {
+  "id": 4,
+  "name": "Terence McKenna",
+  "biography": "Terence McKenna was an American ethnobotanist, mystic, psychonaut, lecturer, author, and an advocate for the responsible use of naturally occurring psychedelic plants.",
+  "placeOfBirth": "Paonia, Colorado, U.S.",
+  "yearOfBirth": "1946",
+  "yearOfDeath": "2000",
+  "status": "Lived"
+}, {
+  "id": 5,
+  "name": "David Hockney",
+  "biography": "David Hockney is a British painter, draftsman, printmaker, stage designer, and photographer. He has used hearing aids since 1979, but realised he was going deaf long before that. He is considered one of the most influential British artists of the 20th century.",
+  "placeOfBirth": "Bradford, West Riding of Yorkshire, England",
+  "yearOfBirth": "1937",
+  "status": "Born"
+}, {
+  "id": 6,
+  "name": "Marlee Matlin",
+  "biography": "Marlee Martin lost her hearing at a young age but nonetheless pursued an acting career and became highly successful, winning an Academy Award in 1987 for her role in Children of a Lesser God. She went on to star in a number of other film and television movies.",
+  "placeOfBirth": "Morton Grove, Illinois, U.S.",
+  "yearOfBirth": "1965",
+  "status": "Born"
+}, {
+  "id": 7,
+  "name": "Nyle DiMarco",
+  "biography": "Nyle DiMarco is an American model, actor, and a deaf activist. In 2015, DiMarco was the second male winner and the first deaf winner of The CW's America's Next Top Model Cycle 22. The following year, he won season 22 of the ABC televised dance competition Dancing with the Stars, with professional dance partner Peta Murgatroyd.",
+  "placeOfBirth": "Queens, New York, U.S.",
+  "yearOfBirth": "1989",
+  "status": "Born"
+}, {
+  "id": 8,
+  "name": "Rachel Shenton",
+  "biography": "Rachel Shenton is a British actress and screenwriter. In 2018, she won an Academy Award for her short film The Silent Child. When Shenton was twelve, her father became deaf after undergoing chemotherapy treatment for cancer.",
+  "placeOfBirth": "Caverswall, Staffordshire, England",
+  "yearOfBirth": "1987",
+  "status": "Born"
+}]

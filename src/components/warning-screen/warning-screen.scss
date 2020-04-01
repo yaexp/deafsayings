@@ -1,0 +1,46 @@
+@import '~styles/main-utils';
+
+.warning-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  background-color: $color-background;
+  background-color: color-rgb('background');
+
+  z-index: 1;
+
+  padding-left: 1em;
+  padding-right: 1em;
+
+  > * {
+    opacity: 0.5;
+  }
+}
+
+.warning-screen__icon {
+  margin-top: -(map-get($spacers, 6) + $icon-32);
+  margin-bottom: map-get($spacers, 6);
+}
+
+.warning-screen__text {
+  max-width: 300px;
+  text-align: center;
+}
+
+.warning-screen__logo {
+  position: absolute;
+  left: 50%;
+  bottom: map-get($spacers, 8);
+
+  transform: translateX(-50%);
+}

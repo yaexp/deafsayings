@@ -1,0 +1,69 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "import"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      },
+      "babel-plugin-root-import": [{
+        "rootPathPrefix": "~/"
+      }, {
+        "rootPathPrefix": "~src/",
+        "rootPathSuffix": "./src"
+      }, {
+        "rootPathPrefix": "~mockdata/",
+        "rootPathSuffix": "./mockdata"
+      }, {
+        "rootPathPrefix": "~styles/",
+        "rootPathSuffix": "./src/assets/styles"
+      }]
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+    "quotes": ["warn", "single"],
+    "no-unused-vars": ["warn", { "args": "after-used" }],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore"
+    }],
+
+    "import/no-unresolved": ["warn", { "commonjs": true }],
+
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-export-default-from",
+    "react-hot-loader/babel",
+    ["babel-plugin-root-import", {
+      "paths": [{
+        "rootPathPrefix": "~/"
+      }, {
+        "rootPathPrefix": "~src/",
+        "rootPathSuffix": "./src"
+      }, {
+        "rootPathPrefix": "~mockdata/",
+        "rootPathSuffix": "./mockdata"
+      }, {
+        "rootPathPrefix": "~styles/",
+        "rootPathSuffix": "./src/assets/styles"
+      }]
+    }]
+  ]
+}

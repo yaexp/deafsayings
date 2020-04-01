@@ -1,0 +1,14 @@
+.image {
+  width: auto;
+  height: auto;
+
+  opacity: 1;
+
+  transition: opacity 250ms ease-in-out;
+
+  &._loading {
+    opacity: 0;
+
+    transition: opacity 100ms ease-in-out;
+  }
+}

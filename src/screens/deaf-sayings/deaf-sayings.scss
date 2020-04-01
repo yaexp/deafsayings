@@ -1,0 +1,240 @@
+@import '~styles/main-utils';
+
+@import './deaf-sayings.json';
+
+$desktop-width: unquote('#{map-get($desktopScreen, 'width')}px');
+$desktop-height: unquote('#{map-get($desktopScreen, 'height')}px');
+$layout-size: map-get($layouts, 6);
+$border-width: 2px;
+$image-width: 228px;
+
+@mixin content-hover($duration: 250ms, $opacity: 0) {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  background-color: rgba($color-main, $opacity);
+  background-color: color-rgba('main', $opacity);
+
+  transition: background-color $duration ease-in-out;
+}
+
+.deaf-sayings {
+  position: absolute;
+
+  top: 50%;
+
+  display: grid;
+  grid-template-columns: $layout-size 1fr 1fr $layout-size;
+  grid-template-rows: $layout-size 1fr 1fr $layout-size;
+
+  min-width: $desktop-width;
+  overflow: hidden;
+
+  transform-origin: top left;
+
+  font-size: $font-size-lg;
+  line-height: $font-height-default;
+
+  background-color: color-rgb('background');
+  color: color-rgb('main');
+
+  &._vertical-auto {
+    top: 50%;
+    left: 0;
+  }
+
+  &._horizontal-auto {
+    top: 0;
+    left: 50%;
+  }
+
+  .ds-quote-text {
+    height: calc(#{$desktop-height} / 2 - #{$layout-size});
+  }
+}
+
+.deaf-sayings__block {
+  position: relative;
+
+  border: 1px solid;
+  border-color: rgba($color-main, 0.12);
+  border-color: color-rgba('main', 0.12);
+
+  color: $color-main;
+  color: color-rgb('main');
+
+  height: 100%;
+
+  > * {
+    padding: map-get($spacers, 6);
+  }
+
+  &[class*="r1"] {
+    border-top-style: none;
+  }
+  &[class*="r4"] {
+    border-bottom-style: none;
+  }
+  &[class*="c1"] {
+    border-left-style: none;
+  }
+  &[class*="c4"],
+  &._r2-c3 {
+    border-right-style: none;
+  }
+
+  &._r2-c2 {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+
+  &._states > * {
+    cursor: pointer;
+    user-select: none;
+
+    &::before {
+      content: '';
+      @include content-hover();
+    }
+
+    &:hover::before {
+      @include content-hover(100ms, $opacity-hover);
+    }
+
+    &:active::before {
+      @include content-hover(100ms, $opacity-selected);
+    }
+  }
+}
+
+.deaf-sayings__logo {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  svg {
+    height: 14px;
+  }
+}
+
+.deaf-sayings__author {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  height: 100%;
+
+  span {
+    display: block;
+  }
+
+  &_content {
+    min-height: 158px;
+  }
+
+  &_name {
+    font-weight: $font-weight-bold;
+    font-size: $h1-size;
+    line-height: $font-height-condensed-ultra;
+    margin-bottom: map-get($spacers, 6);
+  }
+
+  &_biography {}
+
+  &_status {
+    font-weight: $font-weight-bold;
+  }
+
+  &_lifetime {}
+
+  &_place {
+    width: 260px;
+  }
+}
+
+.deaf-sayings__language {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+}
+
+.deaf-sayings__develop-by {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+}
+
+.deaf-sayings__links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  height: 100%;
+}
+
+.deaf-sayings__navigation {
+  display: flex;
+  justify-content: center;
+
+  height: 100%;
+
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    @include content-hover();
+  }
+
+  &._next {
+    align-items: flex-start;
+  }
+  &._prev {
+    align-items: flex-end;
+  }
+  &._next, &._prev {
+    &:hover {
+      &::before {
+        @include content-hover(100ms, $opacity-hover);
+      }
+    }
+
+    &:active {
+      &::before {
+        @include content-hover(100ms, $opacity-selected);
+      }
+    }
+  }
+
+  svg {
+    transition: opacity 250ms ease-in-out;
+  }
+}
+
+.deaf-sayings__image {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  padding: 0;
+
+  width: $image-width;
+  height: 100%;
+
+  background-color: rgba($color-main, 0.12);
+  background-color: color-rgba('main', 0.12);
+
+  img {
+    position: absolute;
+    right: -$border-width;
+    top: -$border-width;
+    height: calc(100% + #{$border-width * 2});
+  }
+}

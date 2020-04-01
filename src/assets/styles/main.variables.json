@@ -1,0 +1,70 @@
+{
+  "colors": {
+    "light": {
+      "background": "#eee",
+      "background-l1": "#fff",
+      "main": "#111",
+      "focus": "#00B2AA"
+    },
+    "dark": {
+      "background": "#111",
+      "main": "#b8b8b8"
+    }
+  },
+
+  "font": {
+    "path": " '../fonts' ",
+    "typefaces": {
+      "primary": {
+        "name": "inter",
+        "family": "Inter",
+        "variants": [
+          { "weight": 400, "style": "normal" },
+          { "weight": 700, "style": "normal" }
+        ]
+      }
+    }
+  },
+
+  "grid": {
+    "columns": "12",
+    "gutter": "30px",
+    "breakpoints": {
+      "xs": "0px",
+      "sm": "576px",
+      "md": "768px",
+      "lg": "992px",
+      "xl": "1200px"
+    },
+    "max-widths": {
+      "sm": "540px",
+      "md": "720px",
+      "lg": "960px",
+      "xl": "1140px"
+    }
+  },
+
+  "spacing": {
+    "spacers": {
+      "1": "2px",
+      "2": "4px",
+      "3": "8px",
+      "4": "12px",
+      "5": "16px",
+      "6": "24px",
+      "7": "32px",
+      "8": "40px",
+      "9": "48px"
+    },
+
+    "layouts": {
+      "1": "16px",
+      "2": "24px",
+      "3": "32px",
+      "4": "48px",
+      "5": "64px",
+      "6": "96px",
+      "7": "160px"
+    }
+  }
+}
