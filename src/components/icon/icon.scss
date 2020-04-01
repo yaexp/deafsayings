@@ -1,4 +1,12 @@
+@import '~styles/main-utils';
+
 .icon {
-  width: auto;
-  height: auto;
+  &._size-32 {
+    width: $icon-32;
+    height: $icon-32;
+  }
+  &._size-auto {
+    width: auto;
+    height: auto;
+  }
 }

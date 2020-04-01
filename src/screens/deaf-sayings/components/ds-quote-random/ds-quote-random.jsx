@@ -19,40 +19,45 @@ import { Icon } from '~src/components';
 
 import './ds-quote-random.scss';
 
-let quoteIds;
-let randomGen;
-
 const DsQuoteRandom = ({
   quoteId,
   onClick,
   ...props
 }) => {
+  const [quoteIds, setQuoteIds] = useState([]);
+  const [randomGenerator, setRandomGenerator] = useState({});
+
   const className = classNames({
     'ds-quote-random': true,
   });
 
   function getRandomQuoteId() {
-    let _randomGen;
+    let next;
 
     do {
-      _randomGen = randomGen.next();
+      next = randomGenerator.next();
 
-      // restart?
-      if (_randomGen.done) {
-        randomGen = shuffle(quoteIds);
-        _randomGen = randomGen.next();
+      // renew?
+      if (next.done) {
+        const randomGen = shuffle(quoteIds);
+        next = randomGen.next();
+
+        setRandomGenerator(randomGen);
       }
 
     // skip if duplicate
-    } while (quoteId === _randomGen.value);
+    } while (quoteId === next.value);
 
-    return _randomGen.value;
+    return next.value;
   }
 
   useEffect(() => {
-    quoteIds = getQuoteIds();
-    randomGen = shuffle(quoteIds);
+    setQuoteIds(getQuoteIds());
   }, []);
+
+  useEffect(() => {
+    setRandomGenerator(shuffle(quoteIds));
+  }, [quoteIds]);
 
   props = {
     className,

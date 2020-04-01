@@ -16,13 +16,15 @@
   opacity: 1;
 
   background-color: $color-background;
-  background-color: color-var('background');
+  background-color: color-rgb('background');
 
-  z-index: 1;
+  z-index: 999;
 
   &._exiting {
     opacity: 0;
     transition: opacity #{$loadedDelay}ms ease-in-out;
   }
 }
+
+.splash-screen__logo {}
 

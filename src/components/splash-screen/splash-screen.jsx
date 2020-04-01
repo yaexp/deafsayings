@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import { Logo } from '~src/components';
+
 import { loadedDelay as LOADED_DELAY } from './splash-screen.variables.json';
 
 import './splash-screen.scss';
@@ -23,7 +25,12 @@ const SplashScreen = ({ isLoading, children }) => {
   });
 
   return <>
-    { !isLoaded && <div className={className}>Loading...</div> }
+    { !isLoaded && (
+      <div className={className}>
+        <div className="splash-screen__logo">
+          <Logo />
+        </div>
+      </div>) }
     { !isLoading && children }
   </>;
 };

@@ -50,8 +50,8 @@ $font-family-primary: map-deep-get($font-typefaces, 'primary', 'family') !defaul
 
 // Font size
 $font-size: rem(16px) !default;
-$font-size-sm: $font-size - 2 !default;
-$font-size-lg: $font-size + 2 !default;
+$font-size-sm: rem(16px - 2) !default;
+$font-size-lg: rem(16px + 2) !default;
 
 // Line height
 $font-height-default: 1.5em !default;

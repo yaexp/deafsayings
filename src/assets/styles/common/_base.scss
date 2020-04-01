@@ -9,9 +9,7 @@ body {
   @include body-typo;
 
   background-color: $color-background;
-
   background-color: color-rgb('background');
-  color: color-rgb('main');
 
   &::before {
     content: '';

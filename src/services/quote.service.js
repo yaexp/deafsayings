@@ -12,16 +12,13 @@ export const getQuotes = () => {
 };
 
 export const getQuote = (quoteId) => {
-  console.log('getQuote');
   return getQuotes().find((quote) => quote.id === quoteId);
 };
 
 export const getQuoteCount = () => {
-  console.log('getQuoteCount');
   return getQuotes().length;
 };
 
 export const getQuoteIds = () => {
-  console.log('getQuoteIds');
   return getQuotes().map((quote) => quote.id);
 };

@@ -27,7 +27,7 @@ const Label = ({
   };
 
   if (iconName) {
-    children = <><Icon iconName={iconName} />{ children }</>;
+    children = <><Icon iconName={iconName} size="auto"/>{ children }</>;
   }
 
   return React.createElement(component, { ...props }, children);
