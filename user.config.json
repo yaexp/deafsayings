@@ -1,0 +1,22 @@
+{
+  "config": {
+    "webpack": {
+      "entry": {
+        "vendor": [
+          "react",
+          "react-dom"
+        ],
+        "app": [
+          "./index.js",
+          "./assets/styles/main.scss"
+        ]
+      },
+      "resolve": {
+        "extensions": [".js", ".jsx"],
+        "alias": {
+          "react-dom": "@hot-loader/react-dom"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import '~styles/main-utils';
+
+.ds-quote-navigation {
+  display: flex;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+
+  &._next {
+    align-items: flex-end;
+  }
+  &._prev {
+    align-items: flex-start;
+  }
+}

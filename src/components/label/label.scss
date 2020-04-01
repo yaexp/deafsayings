@@ -1,0 +1,56 @@
+@import '~styles/main-utils';
+
+.label {
+  position: relative;
+  display: inline-block;
+  padding: map-get($spacers, 2) map-get($spacers, 3);
+  border-radius: map-get($spacers, 2);
+
+  font-size: $font-size;
+  line-height: $font-height-condensed-ultra;
+  text-decoration: none;
+
+  background-color: rgba($color-main, $btn-bg-opacity);
+  background-color: color-rgba('main', $btn-bg-opacity);
+
+  color: $color-main;
+  color: color-rgb('main');
+
+  &[href] {
+    transition:
+      background-color 250ms ease-in-out,
+      box-shadow 100ms ease-in-out;
+
+    &:hover {
+      background-color: rgba($color-main, $btn-bg-opacity-hover);
+      background-color: color-rgba('main', $btn-bg-opacity-hover);
+
+      transition:
+        background-color 100ms ease-in-out,
+        box-shadow 100ms ease-in-out;
+    }
+
+    &:focus {
+      outline: 0;
+      box-shadow: $btn-focus-box-shadow;
+
+      background-color: rgba($color-main, $btn-bg-opacity-focus);
+      background-color: color-rgba('main', $btn-bg-opacity-focus);
+    }
+
+    &:active {
+      background-color: rgba($color-main, $btn-bg-opacity-selected);
+      background-color: color-rgba('main', $btn-bg-opacity-selected);
+    }
+  }
+
+  &._icon {
+    padding-left: calc(#{map-get($spacers, 3)} * 2 + 1em);
+
+    svg {
+      position: absolute;
+      height: 1em;
+      left: map-get($spacers, 3);
+    }
+  }
+}

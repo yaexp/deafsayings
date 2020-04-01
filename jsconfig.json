@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["./*"],
+      "~src/*": ["./src/*"],
+      "~mockdata/*": ["./mockdata/*"],
+      "~styles/*": ["./src/assets/styles/*"]
+    },
+    "jsx": "react",
+    "target": "esnext",
+    "module": "commonjs"
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

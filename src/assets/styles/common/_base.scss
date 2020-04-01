@@ -1,0 +1,34 @@
+@include load-fonts($font-typefaces);
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  @include body-typo;
+
+  background-color: $color-background;
+  background-color: color-rgb('background');
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba($color-main, 0.12);
+    background-color: color-rgba('main', 0.12);
+  }
+}
+
+[tabindex] {
+  outline: none;
+}
+[tabindex="-1"] {
+  pointer-events: none;
+}

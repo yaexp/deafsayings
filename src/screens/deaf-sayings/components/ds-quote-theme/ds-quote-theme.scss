@@ -1,0 +1,11 @@
+@import '~styles/main-utils';
+
+.ds-quote-theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+
+  cursor: pointer;
+}
