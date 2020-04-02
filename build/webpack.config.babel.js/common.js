@@ -83,7 +83,7 @@ export default (paths, config) => {
         cleanOnceBeforeBuildPatterns: [paths.root.prod],
       }),
       new CopyWebpackPlugin([{
-        // :TODO: ~config paths.public.image = '../images'
+        // :TODO: ~config paths.public.image
         from: `${paths.assetsFolder}/images/authors/**/*`,
         to: '[1][name].[ext]',
         test: new RegExp(`${paths.assetsFolder}[/]([a-z0-9-]+[/]).*$`, 'i'),

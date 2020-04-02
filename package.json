@@ -1,6 +1,7 @@
 {
   "name": "@yaprj/deaf-sayings",
-  "version": "0.7.0",
+  "version": "0.7.1",
+  "homepage": "http://yaprj.github.io/deaf-sayings",
   "author": "Yaroslav Kalinkin <yakalinkin@gmail.com>",
   "license": "MIT",
   "private": true,
@@ -8,7 +9,9 @@
     "start": "webpack-dev-server --config build/webpack.config.babel.js",
     "build": "webpack --config build/webpack.config.babel.js",
     "build:prod": "npm run build -- --env.production",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "predeploy": "npm run build:prod",
+    "deploy": "gh-pages -d dist"
   },
   "browserslist": [
     "defaults"
@@ -21,6 +24,7 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^2.5.0",
+    "gh-pages": "^2.2.0",
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
