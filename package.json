@@ -1,7 +1,7 @@
 {
-  "name": "@yaprj/deaf-sayings",
-  "version": "0.7.1",
-  "homepage": "http://yaprj.github.io/deaf-sayings",
+  "name": "@yaexp/deafsayings",
+  "version": "0.7.2",
+  "homepage": "http://yaexp.github.io/deafsayings",
   "author": "Yaroslav Kalinkin <yakalinkin@gmail.com>",
   "license": "MIT",
   "private": true,
