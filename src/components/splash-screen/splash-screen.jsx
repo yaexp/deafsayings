@@ -28,6 +28,7 @@ const SplashScreen = ({ isLoading, children }) => {
     { !isLoaded && (
       <div className={className}>
         <div className="splash-screen__logo">
+          {/* :TODO: Loading logo */}
           <Logo />
         </div>
       </div>) }
