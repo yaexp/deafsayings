@@ -16,7 +16,7 @@ export default (paths, config) => {
     context: paths.root.dev,
     output: {
       path: paths.root.prod,
-      publicPath: config.webpack.publicPath || '',
+      publicPath: config.webpack.publicPath || '/',
       filename: `scripts/${assetsFilenames}.js`,
     },
     module: {
@@ -41,7 +41,7 @@ export default (paths, config) => {
           use: [
             { loader: MiniCssExtractPlugin.loader, options: { hmr: config.enabled.watcher } },
             { loader: 'cache-loader' },
-            { loader: 'css-loader', options: { sourceMap: config.enabled.sourceMaps } },
+            { loader: 'css-loader', options: { url: false, sourceMap: config.enabled.sourceMaps } },
             { loader: 'postcss-loader', options: { config: { path: __dirname, ctx: config } } },
             { loader: 'sass-loader', options: { sassOptions: { importer: [jsonImporter(), globImporter()] } }},
           ],
@@ -84,9 +84,10 @@ export default (paths, config) => {
       }),
       new CopyWebpackPlugin([{
         // :TODO: ~config paths.public.image
-        from: `${paths.assetsFolder}/images/authors/**/*`,
+        from: `${paths.assetsFolder}/images/**/*`,
         to: '[1][name].[ext]',
         test: new RegExp(`${paths.assetsFolder}[/]([a-z0-9-]+[/]).*$`, 'i'),
+        ignore: ['*.svg'],
       }]),
       new MiniCssExtractPlugin({
         filename: `styles/${assetsFilenames}.css`,

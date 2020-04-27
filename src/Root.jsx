@@ -9,7 +9,12 @@ import { loadFontGroup, isMobile } from '~src/utils';
 
 const styleJson = require('~styles/main.variables.json');
 
-import { SplashScreen, WarningScreen } from '~src/components';
+import {
+  SplashScreen,
+  WarningScreen,
+  GrainyTexture,
+} from '~src/components';
+
 import { DeafSayings } from '~src/screens';
 
 const WARNING_MESSAGES = {
@@ -48,12 +53,13 @@ function Root() {
     return () => window.removeEventListener('resize', updateBreakpoint);
   }, []);
 
-  return (
+  return <>
+    <GrainyTexture />
     <SplashScreen isLoading={isLoading}>
       <WarningScreen isWarning={!!warningText} text={warningText} />
       <DeafSayings />
     </SplashScreen>
-  );
+  </>;
 }
 
 export default module.hot ? hot(Root) : Root;
