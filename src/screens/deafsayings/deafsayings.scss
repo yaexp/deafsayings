@@ -60,7 +60,7 @@ $image-width: 228px;
 .deafsayings__block {
   position: relative;
 
-  border: 1px solid;
+  border: ($border-width/2) solid;
   border-color: rgba($color-main, 0.12);
   border-color: color-rgba('main', 0.12);
 
@@ -96,6 +96,15 @@ $image-width: 228px;
     cursor: pointer;
     user-select: none;
 
+    background-color: inherit;
+    border: none;
+
+    color: currentColor;
+
+    > * {
+      pointer-events: none !important;
+    }
+
     &::before {
       content: '';
       @include content-hover();
@@ -107,6 +116,28 @@ $image-width: 228px;
 
     &:active::before {
       @include content-hover(100ms, $opacity-selected);
+    }
+
+    &:focus {
+      outline: 0;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+
+        border: none;
+
+        outline: 1px solid;
+        outline-color: $btn-focus-color;
+
+        z-index: 1;
+      }
     }
   }
 }
@@ -130,7 +161,7 @@ $image-width: 228px;
   }
 
   &_content {
-    min-height: 158px;
+    min-height: 162px;
   }
 
   &_name {

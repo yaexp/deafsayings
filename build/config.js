@@ -3,7 +3,7 @@ import os from 'os';
 import { argv } from 'yargs';
 import { merge } from 'lodash';
 
-const userConfig = require('~/user.config.json');
+import userConfig from '~/user.config.json';
 
 // network address
 const interfaces = os.networkInterfaces();
@@ -20,7 +20,7 @@ const getNetworkAddress = () => {
 
 
 // -env.production, -p
-const isProduction = !!((argv.env && argv.env.production) || argv.p);
+export const isProduction = !!((argv.env && argv.env.production) || argv.p);
 
 
 //

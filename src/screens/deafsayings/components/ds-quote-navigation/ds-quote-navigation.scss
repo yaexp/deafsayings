@@ -1,16 +1,27 @@
 @import '~styles/main-utils';
 
 .ds-quote-navigation {
-  display: flex;
-  justify-content: center;
+  display: block;
 
   height: 100%;
   width: 100%;
 
-  &._next {
-    align-items: flex-end;
+  span {
+    display: flex;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
   }
+
   &._prev {
-    align-items: flex-start;
+    span {
+      align-items: flex-start;
+    }
+  }
+  &._next {
+    span {
+      align-items: flex-end;
+    }
   }
 }

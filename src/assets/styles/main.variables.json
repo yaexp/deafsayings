@@ -4,11 +4,12 @@
       "background": "#eee",
       "background-l1": "#fff",
       "main": "#111",
-      "focus": "#007aff"
+      "cursor": "#eee"
     },
     "dark": {
       "background": "#111",
-      "main": "#b8b8b8"
+      "main": "#b8b8b8",
+      "cursor": "#eee"
     }
   },
 

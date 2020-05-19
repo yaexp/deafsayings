@@ -10,13 +10,13 @@ import isEmpty from 'lodash/isEmpty';
 import {
   getQuote,
   getQuoteCount,
-} from '~src/services/quote.service';
+} from '~/src/services/quote.service';
 
 import {
   Logo,
   Label,
   Image,
-} from '~src/components';
+} from '~/src/components';
 
 import {
   DsQuoteId,
@@ -51,7 +51,7 @@ const DeafSayings = () => {
 
   function updateScale() {
     const scaleX = window.innerWidth / DESKTOP_SCREEN.width;
-    const scaleY = window.innerHeight / DESKTOP_SCREEN.height;
+    const scaleY = window.innerHeight / (DESKTOP_SCREEN.height + 4);
 
     setScale(Math.min(scaleX, scaleY));
 

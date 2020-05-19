@@ -8,14 +8,14 @@ import classNames from 'classnames';
 
 import {
   shuffle,
-} from '~src/utils';
+} from '~/src/utils';
 
 import {
   getQuote,
   getQuoteIds,
-} from '~src/services/quote.service';
+} from '~/src/services/quote.service';
 
-import { Icon } from '~src/components';
+import { Icon } from '~/src/components';
 
 import './ds-quote-random.scss';
 
@@ -24,6 +24,7 @@ const DsQuoteRandom = ({
   onClick,
   ...props
 }) => {
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
   const [quoteIds, setQuoteIds] = useState([]);
   const [randomGenerator, setRandomGenerator] = useState({});
 
@@ -69,13 +70,26 @@ const DsQuoteRandom = ({
         onClick(event, getQuote(newQuoteId));
       }
     },
+    onMouseEnter() {
+      setIsMouseEnter(true);
+    },
+    onMouseLeave() {
+      setIsMouseEnter(false);
+    },
+    onFocus(event) {
+      if (isMouseEnter) {
+        event.target.blur();
+      }
+    },
     ...props,
   };
 
   return (
-    <div {...props}>
-      <Icon iconName="renew" />
-    </div>
+    <button {...props}>
+      <span>
+        <Icon iconName="renew" />
+      </span>
+    </button>
   );
 };
 

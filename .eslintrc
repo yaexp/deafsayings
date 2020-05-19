@@ -28,12 +28,6 @@
       "babel-plugin-root-import": [{
         "rootPathPrefix": "~/"
       }, {
-        "rootPathPrefix": "~src/",
-        "rootPathSuffix": "./src"
-      }, {
-        "rootPathPrefix": "~mockdata/",
-        "rootPathSuffix": "./mockdata"
-      }, {
         "rootPathPrefix": "~styles/",
         "rootPathSuffix": "./src/assets/styles"
       }]

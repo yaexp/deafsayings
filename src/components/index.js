@@ -5,3 +5,4 @@ export * from './label';
 export * from './icon';
 export * from './image';
 export * from './grainy-texture';
+export * from './cursor';

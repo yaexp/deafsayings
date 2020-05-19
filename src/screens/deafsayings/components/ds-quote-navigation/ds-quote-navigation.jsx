@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { getQuote } from '~src/services/quote.service';
+import { getQuote } from '~/src/services/quote.service';
 
-import { Icon } from '~src/components';
+import { Icon } from '~/src/components';
 
 import './ds-quote-navigation.scss';
 
@@ -18,6 +18,7 @@ const DsQuoteNavigation = ({
     onClick,
     ...props
   }) => {
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
   const iconName = isTypeNext() ? Icon.statics.ARROW_DOWN : Icon.statics.ARROW_UP;
   const title = isTypeNext() ? 'Next quote' : 'Previous quote';
 
@@ -57,13 +58,26 @@ const DsQuoteNavigation = ({
         onClick(event, getQuote(newQuoteId));
       }
     },
+    onMouseEnter() {
+      setIsMouseEnter(true);
+    },
+    onMouseLeave() {
+      setIsMouseEnter(false);
+    },
+    onFocus(event) {
+      if (isMouseEnter) {
+        event.target.blur();
+      }
+    },
     ...props,
   };
 
   return (
-    <div {...props}>
-      { iconName && <Icon iconName={iconName} /> }
-    </div>
+    <button {...props}>
+      <span>
+        { iconName && <Icon iconName={iconName} /> }
+      </span>
+    </button>
   );
 };
 

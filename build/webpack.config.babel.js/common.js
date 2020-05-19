@@ -46,36 +46,6 @@ export default (paths, config) => {
             { loader: 'sass-loader', options: { sassOptions: { importer: [jsonImporter(), globImporter()] } }},
           ],
         },
-
-        // fonts
-        {
-          test: /\.(woff2?)$/,
-          exclude: /node_modules/,
-          include: paths.root.dev,
-          use: [{
-            loader: 'file-loader',
-            options: {
-              regExp: new RegExp(`${paths.assetsFolder}[/]([a-z0-9-]+[/]).*$`, 'i'),
-              name: '[1][name].[ext]',
-              publicPath: (url) => `../${url}`,
-            },
-          }],
-        },
-
-        // images
-        {
-          test: /\.(jpe?g|png|gif|svg|ico)$/,
-          exclude: /node_modules/,
-          include: paths.root.dev,
-          use: [{
-            loader: 'file-loader',
-            options: {
-              regExp: new RegExp(`${paths.assetsFolder}[/]([a-z0-9-]+[/]).*$`, 'i'),
-              name: '[1][name].[ext]',
-              publicPath: (url) => `../${url}`,
-            },
-          }],
-        },
       ],
     },
     plugins: [
@@ -88,6 +58,11 @@ export default (paths, config) => {
         to: '[1][name].[ext]',
         test: new RegExp(`${paths.assetsFolder}[/]([a-z0-9-]+[/]).*$`, 'i'),
         ignore: ['*.svg'],
+      }, {
+        // :TODO: ~config paths.public.fonts
+        from: `${paths.assetsFolder}/fonts/**/*`,
+        to: '[1][name].[ext]',
+        test: new RegExp(`${paths.assetsFolder}[/]([a-z0-9-]+[/]).*$`, 'i'),
       }]),
       new MiniCssExtractPlugin({
         filename: `styles/${assetsFilenames}.css`,

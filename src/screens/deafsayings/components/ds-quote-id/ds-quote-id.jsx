@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { pad } from '~src/utils';
+import { pad } from '~/src/utils';
 
 import './ds-quote-id.scss';
 
