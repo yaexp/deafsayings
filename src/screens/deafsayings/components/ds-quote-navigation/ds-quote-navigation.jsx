@@ -5,31 +5,33 @@ import classNames from 'classnames';
 import { getQuote } from '~/src/services/quote.service';
 
 import { Icon } from '~/src/components';
+import { useWait } from '~/src/hooks';
 
 import './ds-quote-navigation.scss';
 
-const TYPE_NEXT = 'next';
-const TYPE_PREV = 'prev';
+const DIRECT_NEXT = 'next';
+const DIRECT_PREV = 'prev';
 
 const DsQuoteNavigation = ({
-    type,
+    directType,
     quoteId,
     quoteCount,
     onClick,
     ...props
   }) => {
   const [isMouseEnter, setIsMouseEnter] = useState(false);
-  const iconName = isTypeNext() ? Icon.statics.ARROW_DOWN : Icon.statics.ARROW_UP;
-  const title = isTypeNext() ? 'Next quote' : 'Previous quote';
+  const { isWaiting } = useWait();
+
+  const iconName = isDirectType() ? Icon.statics.ARROW_DOWN : Icon.statics.ARROW_UP;
 
   const className = classNames({
     'ds-quote-navigation': true,
-    '_prev': !isTypeNext(),
-    '_next': isTypeNext(),
+    '_prev': !isDirectType(),
+    '_next': isDirectType(),
   });
 
-  function isTypeNext() {
-    return type === DsQuoteNavigation.statics.TYPE_NEXT;
+  function isDirectType() {
+    return directType === DsQuoteNavigation.statics.DIRECT_NEXT;
   }
 
   function getNextQuoteId() {
@@ -44,18 +46,19 @@ const DsQuoteNavigation = ({
 
   props = {
     className,
-    title,
     onClick: (event) => {
-      if (onClick) {
+      const isTextRevealerWaiting = isWaiting('text-revealer');
+
+      if (!isTextRevealerWaiting && onClick) {
         let newQuoteId;
 
-        if (type === DsQuoteNavigation.statics.TYPE_NEXT) {
+        if (directType === DsQuoteNavigation.statics.DIRECT_NEXT) {
           newQuoteId = getNextQuoteId();
         } else {
           newQuoteId = getPrevQuoteId();
         }
 
-        onClick(event, getQuote(newQuoteId));
+        onClick(event, { data: getQuote(newQuoteId), directType });
       }
     },
     onMouseEnter() {
@@ -82,15 +85,15 @@ const DsQuoteNavigation = ({
 };
 
 DsQuoteNavigation.propTypes = {
-  type: PropTypes.oneOf([TYPE_NEXT, TYPE_PREV]).isRequired,
+  directType: PropTypes.oneOf([DIRECT_NEXT, DIRECT_PREV]).isRequired,
   quoteId: PropTypes.number.isRequired,
   quoteCount: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
 DsQuoteNavigation.statics = {
-  TYPE_NEXT,
-  TYPE_PREV,
+  DIRECT_NEXT,
+  DIRECT_PREV,
 };
 
 export default DsQuoteNavigation;

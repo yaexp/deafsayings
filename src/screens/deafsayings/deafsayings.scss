@@ -156,18 +156,18 @@ $image-width: 228px;
 
   height: 100%;
 
-  span {
-    display: block;
-  }
-
   &_content {
     min-height: 162px;
+
+    > * {
+      display: block;
+    }
   }
 
   &_name {
     font-weight: $font-weight-bold;
     font-size: $h1-size;
-    line-height: $font-height-condensed-ultra;
+    line-height: $font-height-condensed;
     margin-bottom: map-get($spacers, 6);
   }
 
@@ -258,7 +258,7 @@ $image-width: 228px;
   background-color: rgba($color-main, 0.12);
   background-color: color-rgba('main', 0.12);
 
-  z-index: 1;
+  z-index: 10;
 
   img {
     position: absolute;

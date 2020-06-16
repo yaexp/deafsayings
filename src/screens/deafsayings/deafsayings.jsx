@@ -16,6 +16,7 @@ import {
   Logo,
   Label,
   Image,
+  TextRevealer,
 } from '~/src/components';
 
 import {
@@ -35,6 +36,7 @@ const DeafSayings = () => {
   const [isVertical, setIsVertical] = useState(false);
   const [quote, setQuote] = useState();
   const [quoteCount, setQuoteCount] = useState();
+  const [directType, setDirectType] = useState();
 
   const className = classNames({
     'deafsayings': true,
@@ -58,8 +60,9 @@ const DeafSayings = () => {
     setIsVertical(scaleY > scaleX);
   }
 
-  function handleUpdateQuote(event, data) {
+  function handleUpdateQuote(event, { data, directType }) {
     setQuote(data);
+    setDirectType(directType);
   }
 
   useEffect(() => {
@@ -88,6 +91,7 @@ const DeafSayings = () => {
         <DsQuoteId
           quoteId={quote.id}
           quoteCount={quoteCount}
+          directType={directType}
         />
       </div>
       <div className="deafsayings__block _r1-c4">
@@ -100,11 +104,12 @@ const DeafSayings = () => {
         <DsQuoteText
           quoteText={quote.text}
           quoteSize={quote.size}
+          directType={directType}
         />
       </div>
       <div className="deafsayings__block _r2-c3 _states">
         <DsQuoteNavigation
-          type="prev"
+          directType="prev"
           quoteId={quote.id}
           quoteCount={quoteCount}
           onClick={handleUpdateQuote}
@@ -115,9 +120,13 @@ const DeafSayings = () => {
       <div className="deafsayings__block _r3-c1"></div>
       <div className="deafsayings__block _r3-c2">
         <div className="deafsayings__author">
-          <span className="deafsayings__author_name">{ quote.author.name }</span>
+          <span className="deafsayings__author_name">
+            { quote.author.name }
+          </span>
           <div className="deafsayings__author_content">
-            <span className="deafsayings__author_biography">{ quote.author.biography }</span>
+            <span className="deafsayings__author_biography">
+              { quote.author.biography }
+            </span>
           </div>
         </div>
       </div>
@@ -127,15 +136,21 @@ const DeafSayings = () => {
         </div>
         <div className="deafsayings__author">
           <div className="deafsayings__author_content">
-            <span className="deafsayings__author_status">{ quote.author.status }</span>
-            <span className="deafsayings__author_lifetime">{ quote.author.getLifetime() }</span>
-            <span className="deafsayings__author_place">{ quote.author.placeOfBirth }</span>
+            <span className="deafsayings__author_status">
+              { quote.author.status }
+            </span>
+            <span className="deafsayings__author_lifetime">
+              { quote.author.getLifetime() }
+            </span>
+            <span className="deafsayings__author_place">
+              { quote.author.placeOfBirth }
+            </span>
           </div>
         </div>
       </div>
       <div className="deafsayings__block _r3-c4 _states">
         <DsQuoteNavigation
-          type="next"
+          directType="next"
           quoteId={quote.id}
           quoteCount={quoteCount}
           onClick={handleUpdateQuote}

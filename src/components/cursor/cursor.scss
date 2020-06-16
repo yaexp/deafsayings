@@ -58,23 +58,20 @@
   opacity: 1;
 
   transition:
-    height 100ms ease-in-out,
-    width 100ms ease-in-out,
-    border-radius 100ms ease-in-out,
-    background-color 100ms ease-in-out,
-    opacity 300ms ease-in-out;
+    height 200ms,
+    width 200ms,
+    border-radius 200ms,
+    background-color 200ms;
 }
 
 .cursor__dot {
   @include make-cursor-circle(0.25em);
 
-  // background-color: white;
   background-color: color-rgb('cursor');
 }
 
 .cursor__circle {
   @include make-cursor-circle(1.75em);
 
-  // background-color: rgba(white, 0.12);
   background-color: color-rgba('cursor', 0.12);
 }

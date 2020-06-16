@@ -16,6 +16,7 @@ import {
 } from '~/src/services/quote.service';
 
 import { Icon } from '~/src/components';
+import { useWait } from '~/src/hooks';
 
 import './ds-quote-random.scss';
 
@@ -27,6 +28,7 @@ const DsQuoteRandom = ({
   const [isMouseEnter, setIsMouseEnter] = useState(false);
   const [quoteIds, setQuoteIds] = useState([]);
   const [randomGenerator, setRandomGenerator] = useState({});
+  const { isWaiting } = useWait();
 
   const className = classNames({
     'ds-quote-random': true,
@@ -62,12 +64,12 @@ const DsQuoteRandom = ({
 
   props = {
     className,
-    title: 'Random quote',
     onClick: (event) => {
-      if (onClick) {
-        const newQuoteId = getRandomQuoteId();
+      const isTextRevealerWaiting = isWaiting('text-revealer');
 
-        onClick(event, getQuote(newQuoteId));
+      if (!isTextRevealerWaiting && onClick) {
+        const newQuoteId = getRandomQuoteId();
+        onClick(event, { data: getQuote(newQuoteId) });
       }
     },
     onMouseEnter() {

@@ -6,3 +6,4 @@ export * from './icon';
 export * from './image';
 export * from './grainy-texture';
 export * from './cursor';
+export * from './text-revealer';

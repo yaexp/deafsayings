@@ -6,6 +6,7 @@ import React, {
 
 import { hot } from 'react-hot-loader/root';
 import { loadFontGroup, isMobile } from '~/src/utils';
+import { WaitingProvider } from '~/src/hooks';
 
 const styleJson = require('~styles/main.variables.json');
 
@@ -49,7 +50,7 @@ function Root() {
       await loadFontGroup(styleJson.font.typefaces['primary']);
       setTimeout(() => setIsLoading(false), 1000);
     })();
-  });
+  }, []);
 
   useLayoutEffect(() => {
     window.addEventListener('resize', updateBreakpoint);
@@ -69,11 +70,13 @@ function Root() {
     );
   }
 
-  return <>
-    <GrainyTexture />
-    <Cursor />
-    { screenEl }
-  </>;
+  return (
+    <WaitingProvider>
+      <GrainyTexture />
+      <Cursor />
+      { screenEl }
+    </WaitingProvider>
+  );
 }
 
 export default module.hot ? hot(Root) : Root;
