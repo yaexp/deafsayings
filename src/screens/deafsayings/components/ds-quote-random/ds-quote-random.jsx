@@ -15,7 +15,7 @@ import {
   getQuoteIds,
 } from '~/src/services/quote.service';
 
-import { Icon } from '~/src/components';
+import { Icon, BlockEffect } from '~/src/components';
 import { useWait } from '~/src/hooks';
 
 import './ds-quote-random.scss';
@@ -65,7 +65,7 @@ const DsQuoteRandom = ({
   props = {
     className,
     onClick: (event) => {
-      const isTextRevealerWaiting = isWaiting('text-revealer');
+      const isTextRevealerWaiting = isWaiting(BlockEffect.blockElementName);
 
       if (!isTextRevealerWaiting && onClick) {
         const newQuoteId = getRandomQuoteId();

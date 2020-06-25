@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { TextRevealer } from '~/src/components';
+import { BlockEffect } from '~/src/components';
 
 import './ds-quote-text.scss';
 
@@ -33,11 +33,14 @@ const DsQuoteText = ({
 
   return (
     <div {...props}>
-      <TextRevealer
-        text={quoteText}
+      <BlockEffect
+        effectType={BlockEffect.effectType.REVEAL_EFFECT}
         directType={directType}
-        onNextChange={() => setNextQuoteSize(quoteSize)}
-      />
+        onEntered={() => setNextQuoteSize(quoteSize)}
+        easingOut="easeOutBack"
+      >
+        {quoteText}
+      </BlockEffect>
     </div>
   );
 };

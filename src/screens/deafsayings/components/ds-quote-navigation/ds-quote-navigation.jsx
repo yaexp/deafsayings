@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { getQuote } from '~/src/services/quote.service';
 
-import { Icon } from '~/src/components';
+import { Icon, BlockEffect } from '~/src/components';
 import { useWait } from '~/src/hooks';
 
 import './ds-quote-navigation.scss';
@@ -47,7 +47,7 @@ const DsQuoteNavigation = ({
   props = {
     className,
     onClick: (event) => {
-      const isTextRevealerWaiting = isWaiting('text-revealer');
+      const isTextRevealerWaiting = isWaiting(BlockEffect.blockElementName);
 
       if (!isTextRevealerWaiting && onClick) {
         let newQuoteId;

@@ -44,12 +44,18 @@ function Root() {
   }
 
   useEffect(() => {
+    let loadingTimer;
+
     document.title = 'Deaf Sayings';
 
     (async () => {
       await loadFontGroup(styleJson.font.typefaces['primary']);
-      setTimeout(() => setIsLoading(false), 1000);
+      loadingTimer = setTimeout(() => setIsLoading(false), 1000);
     })();
+
+    return () => {
+      clearTimeout(loadingTimer);
+    };
   }, []);
 
   useLayoutEffect(() => {

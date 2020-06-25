@@ -17,11 +17,17 @@ const SplashScreen = ({ isLoading, children }) => {
   });
 
   useEffect(() => {
+    let loadingTimer;
+
     if(!isLoading) {
-      setTimeout(() => {
+      loadingTimer = setTimeout(() => {
         setIsLoaded(true);
       }, LOADED_DELAY);
     }
+
+    return () => {
+      clearTimeout(loadingTimer);
+    };
   });
 
   return <>

@@ -16,7 +16,7 @@ import {
   Logo,
   Label,
   Image,
-  TextRevealer,
+  BlockEffect,
 } from '~/src/components';
 
 import {
@@ -120,14 +120,26 @@ const DeafSayings = () => {
       <div className="deafsayings__block _r3-c1"></div>
       <div className="deafsayings__block _r3-c2">
         <div className="deafsayings__author">
-          <span className="deafsayings__author_name">
-            { quote.author.name }
-          </span>
-          <div className="deafsayings__author_content">
-            <span className="deafsayings__author_biography">
-              { quote.author.biography }
+          <BlockEffect
+            effectType={BlockEffect.effectType.FADE_EFFECT}
+            directType={directType}
+            delay={100}
+          >
+            <span className="deafsayings__author_name">
+              { quote.author.name }
             </span>
-          </div>
+          </BlockEffect>
+          <BlockEffect
+            effectType={BlockEffect.effectType.FADE_EFFECT}
+            directType={directType}
+            delay={200}
+          >
+            <div className="deafsayings__author_content">
+              <span className="deafsayings__author_biography">
+                { quote.author.biography }
+              </span>
+            </div>
+          </BlockEffect>
         </div>
       </div>
       <div className="deafsayings__block _r3-c3">
@@ -135,17 +147,23 @@ const DeafSayings = () => {
           <Image src={quote.author.img} />
         </div>
         <div className="deafsayings__author">
-          <div className="deafsayings__author_content">
-            <span className="deafsayings__author_status">
-              { quote.author.status }
-            </span>
-            <span className="deafsayings__author_lifetime">
-              { quote.author.getLifetime() }
-            </span>
-            <span className="deafsayings__author_place">
-              { quote.author.placeOfBirth }
-            </span>
-          </div>
+          <BlockEffect
+            effectType={BlockEffect.effectType.FADE_EFFECT}
+            directType={directType}
+            delay={300}
+          >
+            <div className="deafsayings__author_content">
+              <span className="deafsayings__author_status">
+                { quote.author.status }
+              </span>
+              <span className="deafsayings__author_lifetime">
+                { quote.author.getLifetime() }
+              </span>
+              <span className="deafsayings__author_place">
+                { quote.author.placeOfBirth }
+              </span>
+            </div>
+          </BlockEffect>
         </div>
       </div>
       <div className="deafsayings__block _r3-c4 _states">

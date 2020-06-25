@@ -20,6 +20,7 @@ const Cursor = function () {
 
   function handleMouseLeave() {
     setIsCursorHide(true);
+    setIsCursorClick(false);
   }
 
   function handleMouseOver(event) {

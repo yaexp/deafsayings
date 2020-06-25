@@ -13,9 +13,6 @@
     "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d dist"
   },
-  "browserslist": [
-    "defaults"
-  ],
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",

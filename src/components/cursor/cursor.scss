@@ -38,7 +38,7 @@
     }
 
     &._hover .cursor__dot {
-      @include make-cursor-circle(2.25em);
+      @include make-cursor-circle(2.75em);
     }
   }
 
@@ -47,7 +47,7 @@
       opacity: 0;
     }
     .cursor__dot {
-      @include make-cursor-circle(2.5em);
+      @include make-cursor-circle(3em);
     }
   }
 }

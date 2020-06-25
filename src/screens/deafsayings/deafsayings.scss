@@ -153,6 +153,7 @@ $image-width: 228px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  overflow: hidden;
 
   height: 100%;
 
@@ -165,6 +166,7 @@ $image-width: 228px;
   }
 
   &_name {
+    display: block;
     font-weight: $font-weight-bold;
     font-size: $h1-size;
     line-height: $font-height-condensed;
