@@ -34,10 +34,9 @@ const DsQuoteText = ({
   return (
     <div {...props}>
       <BlockEffect
-        effectType={BlockEffect.effectType.REVEAL_EFFECT}
+        effectType={BlockEffect.effectType.TEXT_REVEAL_EFFECT}
         directType={directType}
         onEntered={() => setNextQuoteSize(quoteSize)}
-        easingOut="easeOutBack"
       >
         {quoteText}
       </BlockEffect>

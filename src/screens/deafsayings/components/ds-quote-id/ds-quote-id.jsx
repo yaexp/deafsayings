@@ -27,7 +27,7 @@ const DsQuoteId = ({
       No.
       <span className="ds-quote-id__current">
         <BlockEffect
-          effectType={BlockEffect.effectType.REVEAL_EFFECT}
+          effectType={BlockEffect.effectType.TEXT_REVEAL_EFFECT}
           directType={directType}
         >
           { pad(quoteId) }

@@ -6,7 +6,6 @@ import React, {
 
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import anime from 'animejs';
 
 import { useWait } from '~/src/hooks';
 import { getTextFromNode } from '~/src/utils';
@@ -44,10 +43,12 @@ const DOM = {
 
 const useBlockEffectState = ({
   children,
+  deps,
   waiterKey,
   effectType,
   directType,
-  delay,
+  delayIn,
+  delayOut,
   onEntered,
   onExited,
   easingIn,
@@ -66,7 +67,7 @@ const useBlockEffectState = ({
 
     setNextChildren(children);
 
-    if(effectType === REVEAL_EFFECT) {
+    if(effectType === TEXT_REVEAL_EFFECT) {
       timer = setTimeout(() => {
         splitLines({
           element: DOM.blockEffect.inner.getElement(ref.current),
@@ -88,14 +89,15 @@ const useBlockEffectState = ({
 
     startWaiting(waiterKey);
     setIsStart(true);
-  }, [getTextFromNode(children)]);
+  }, deps.length ? deps : getTextFromNode(children));
 
   useEffect(() => {
     let innerElement;
-    let delayTimer = null;
+    let delayInTimer = null;
+    let delayOutTimer = null;
 
     switch (effectType) {
-      case REVEAL_EFFECT:
+      case TEXT_REVEAL_EFFECT:
         innerElement = DOM.blockEffect.line.getElement(ref.current);
         break;
       default:
@@ -103,7 +105,7 @@ const useBlockEffectState = ({
     }
 
     if(isStart) {
-      delayTimer = setTimeout(() => {
+      delayInTimer = setTimeout(() => {
         effects[`${effectType}Effect`]({
           targets: innerElement,
           duration: START_ANIMATION_LENGTH,
@@ -114,7 +116,7 @@ const useBlockEffectState = ({
 
           setNextChildren(children);
 
-          if(effectType === REVEAL_EFFECT) {
+          if(effectType === TEXT_REVEAL_EFFECT) {
             splitLines({
               element: DOM.blockEffect.inner.getElement(ref.current),
               lineClassName: DOM.blockEffect.line.className,
@@ -124,25 +126,28 @@ const useBlockEffectState = ({
           setIsStart(false);
           setIsFinish(true);
         });
-      }, delay);
+      }, delayIn);
     }
 
     if (isFinish) {
-      effects[`${effectType}Effect`]({
-        targets: innerElement,
-        duration: END_ANIMATION_LENGTH,
-        easing: easingOut,
-        effectType: (directType === DIRECT_NEXT) ? 'InDown' : 'InUp',
-      }).then(() => {
-        onExited && onExited();
+      setTimeout(() => {
+        effects[`${effectType}Effect`]({
+          targets: innerElement,
+          duration: END_ANIMATION_LENGTH,
+          easing: easingOut,
+          effectType: (directType === DIRECT_NEXT) ? 'InDown' : 'InUp',
+        }).then(() => {
+          onExited && onExited();
 
-        setIsFinish(false);
-        endWaiting(waiterKey);
-      });
+          setIsFinish(false);
+          endWaiting(waiterKey);
+        });
+      }, delayOut);
     }
 
     return () => {
-      clearTimeout(delayTimer);
+      clearTimeout(delayInTimer);
+      clearTimeout(delayOutTimer);
     };
   }, [isStart, isFinish]);
 
@@ -151,10 +156,12 @@ const useBlockEffectState = ({
 
 const BlockEffect = ({
   children,
+  deps = [],
   effectType = FADE_EFFECT,
   directType = DIRECT_NEXT,
   waiterKey = DOM.blockEffect.className,
-  delay,
+  delayIn,
+  delayOut,
   onEntered,
   onExited,
   easingIn = 'easeInExpo',
@@ -164,10 +171,12 @@ const BlockEffect = ({
   const blockRef = useRef();
   const { isStart, isFinish, nextChildren } = useBlockEffectState({
     children,
+    deps,
     waiterKey,
     effectType,
     directType,
-    delay,
+    delayIn,
+    delayOut,
     onEntered,
     onExited,
     easingIn,
@@ -204,20 +213,23 @@ const {
 
 const {
   FADE_EFFECT,
-  REVEAL_EFFECT,
+  TEXT_REVEAL_EFFECT,
 } = BlockEffect.effectType = {
   FADE_EFFECT: 'fade',
-  REVEAL_EFFECT: 'reveal',
+  TEXT_REVEAL_EFFECT: 'textReveal',
+  IMAGE_REVEAL_EFFECT: 'imageReveal',
 };
 
 BlockEffect.blockElementName = DOM.blockEffect.className;
 
 BlockEffect.propTypes = {
   children: PropTypes.node.isRequired,
+  deps: PropTypes.array,
   effectType: PropTypes.oneOf(Object.values(BlockEffect.effectType)),
   directType: PropTypes.oneOf(Object.values(BlockEffect.directType)),
   waiterKey: PropTypes.string,
-  delay: PropTypes.number,
+  delayIn: PropTypes.number,
+  delayOut: PropTypes.number,
   easingIn: PropTypes.string,
   easingOut: PropTypes.string,
   onEntered: PropTypes.func,

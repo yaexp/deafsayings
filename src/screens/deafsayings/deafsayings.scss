@@ -262,10 +262,15 @@ $image-width: 228px;
 
   z-index: 10;
 
-  img {
+  > * {
     position: absolute;
     right: -$border-width;
     top: -$border-width;
     height: calc(100% + #{$border-width * 2});
+
+    * {
+      height: 100%;
+      width: 100%;
+    }
   }
 }

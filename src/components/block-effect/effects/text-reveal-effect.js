@@ -1,6 +1,6 @@
 import anime from 'animejs';
 
-export const revealEffect = ({
+export const textRevealEffect = ({
   targets,
   delay = anime.stagger(100),
   duration,
@@ -14,19 +14,19 @@ export const revealEffect = ({
   switch(effectType) {
     case 'InUp':
       keyframes['opacity'] = [0, 1];
-      keyframesInner['translateY'] = ['100%', '0%'];
+      keyframesInner['translateY'] = ['-100%', '0%'];
       break;
     case 'InDown':
       keyframes['opacity'] = [0, 1];
-      keyframesInner['translateY'] = ['-100%', '0%'];
+      keyframesInner['translateY'] = ['100%', '0%'];
       break;
     case 'OutUp':
       keyframes['opacity'] = [1, 0];
-      keyframesInner['translateY'] = ['0%', '-100%'];
+      keyframesInner['translateY'] = ['0%', '100%'];
       break;
     case 'OutDown':
       keyframes['opacity'] = [1, 0];
-      keyframesInner['translateY'] = ['0%', '100%'];
+      keyframesInner['translateY'] = ['0%', '-100%'];
       break;
   }
 

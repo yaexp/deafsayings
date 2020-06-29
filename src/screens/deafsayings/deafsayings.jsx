@@ -123,7 +123,8 @@ const DeafSayings = () => {
           <BlockEffect
             effectType={BlockEffect.effectType.FADE_EFFECT}
             directType={directType}
-            delay={100}
+            delayIn={100}
+            deps={ [quote.author.id] }
           >
             <span className="deafsayings__author_name">
               { quote.author.name }
@@ -132,7 +133,8 @@ const DeafSayings = () => {
           <BlockEffect
             effectType={BlockEffect.effectType.FADE_EFFECT}
             directType={directType}
-            delay={200}
+            delayIn={200}
+            deps={ [quote.author.id] }
           >
             <div className="deafsayings__author_content">
               <span className="deafsayings__author_biography">
@@ -144,13 +146,22 @@ const DeafSayings = () => {
       </div>
       <div className="deafsayings__block _r3-c3">
         <div className="deafsayings__image">
-          <Image src={quote.author.img} />
+          <BlockEffect
+            effectType={BlockEffect.effectType.IMAGE_REVEAL_EFFECT}
+            directType={directType}
+            // delayIn={100}
+            delayOut={100}
+            deps={ [quote.author.id] }
+          >
+            <Image src={quote.author.img} />
+          </BlockEffect>
         </div>
         <div className="deafsayings__author">
           <BlockEffect
             effectType={BlockEffect.effectType.FADE_EFFECT}
             directType={directType}
-            delay={300}
+            delayIn={300}
+            deps={ [quote.author.id] }
           >
             <div className="deafsayings__author_content">
               <span className="deafsayings__author_status">
