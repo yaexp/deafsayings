@@ -1,8 +1,11 @@
 import React, {
   useState,
   useEffect,
+  useRef,
 } from 'react';
 import classNames from 'classnames';
+
+import isEmpty from 'lodash/isEmpty';
 
 const styleJson = require('~styles/main.variables.json');
 
@@ -10,18 +13,42 @@ import { Icon } from '~/src/components';
 
 import './ds-quote-theme.scss';
 
+function getThemeGenerator() {
+  const colors = Object.keys(styleJson.colors).filter((color) => color !== DOM.html.getTheme());
+  return colors[Symbol.iterator]();
+}
+
+const DOM = {
+  html: {
+    getTheme: () => document.querySelector('html').getAttribute('data-theme'),
+    setTheme: (value) => document.querySelector('html').setAttribute('data-theme', value),
+  },
+};
+
+let themes = (() => {
+  let themeGenerator;
+
+  return {
+    next() {
+      if (!themeGenerator) {
+        this.update();
+      }
+      return themeGenerator.next();
+    },
+    update() {
+      themeGenerator = getThemeGenerator();
+    },
+  };
+})();
+
 const DsQuoteTheme = (props) => {
+  const isFirstChange = useRef(true);
   const [isMouseEnter, setIsMouseEnter] = useState(false);
-  const [themes, setThemes] = useState(getThemeGenerator());
-  const [currentTheme, setCurrentTheme] = useState({});
+  const [currentTheme, setCurrentTheme] = useState({ value: DOM.html.getTheme() });
 
   const className = classNames({
     'ds-quote-theme': true,
   });
-
-  function getThemeGenerator() {
-    return Object.keys(styleJson.colors)[Symbol.iterator]();
-  }
 
   props = {
     className,
@@ -43,17 +70,22 @@ const DsQuoteTheme = (props) => {
   };
 
   useEffect(() => {
-    setCurrentTheme(themes.next());
-  }, [themes]);
+    if (isFirstChange.current) {
+      isFirstChange.current = false;
+      return;
+    }
 
-  useEffect(() => {
-    currentTheme.value && document.querySelector('html').setAttribute('data-theme', currentTheme.value);
-    return () => document.querySelector('html').removeAttribute('data-theme');
+    if (currentTheme.value !== DOM.html.getTheme()) {
+      DOM.html.setTheme(currentTheme.value);
+    } else {
+      setCurrentTheme(themes.next());
+    }
   }, [currentTheme.value]);
 
   useEffect(() => {
     if(currentTheme.done) {
-      setThemes(getThemeGenerator());
+      themes.update();
+      setCurrentTheme(themes.next());
     }
   }, [currentTheme.done]);
 

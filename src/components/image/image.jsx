@@ -1,6 +1,7 @@
 import React, {
   useState,
   useEffect,
+  useReducer,
 } from 'react';
 
 import PropTypes from 'prop-types';
@@ -9,12 +10,15 @@ import classNames from 'classnames';
 import './image.scss';
 
 const useImageChange = ({ src }) => {
+  const [prevSrc, dispatch] = useReducer((prevSrc, currentSrc) => currentSrc, null, () => src);
   const [isLoading, setIsLoading] = useState(false);
   const [imageMessage, setImageMessage] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    setImageMessage('Loading ...');
+    if(src !== prevSrc) {
+      setIsLoading(true);
+      setImageMessage('Loading ...');
+    }
   }, [src]);
 
   return {
@@ -23,6 +27,7 @@ const useImageChange = ({ src }) => {
     handleLoad() {
       setIsLoading(false);
       setImageMessage(null);
+      dispatch(src);
     },
     handleError() {
       setIsLoading(false);

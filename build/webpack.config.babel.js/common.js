@@ -16,7 +16,7 @@ export default (paths, config) => {
     context: paths.root.dev,
     output: {
       path: paths.root.prod,
-      publicPath: config.webpack.publicPath || '/',
+      publicPath: config.webpack.publicPath || '',
       filename: `scripts/${assetsFilenames}.js`,
     },
     module: {
