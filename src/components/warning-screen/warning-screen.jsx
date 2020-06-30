@@ -5,13 +5,12 @@ import classNames from 'classnames';
 import {
   Icon,
   Logo,
-} from '~src/components';
+} from '~/src/components';
 
 import './warning-screen.scss';
 
 const WarningScreen = ({
   text,
-  isWarning,
   ...props
 }) => {
   const className = classNames({
@@ -23,7 +22,7 @@ const WarningScreen = ({
     ...props,
   };
 
-  return isWarning ? (
+  return text ? (
     <div {...props}>
       <div className="warning-screen__icon">
         <Icon iconName="warning"/>
@@ -40,11 +39,6 @@ const WarningScreen = ({
 
 WarningScreen.propTypes = {
   text: PropTypes.string.isRequired,
-  isWarning: PropTypes.bool,
-};
-
-WarningScreen.defaultProps = {
-  isWarning: true,
 };
 
 export default WarningScreen;

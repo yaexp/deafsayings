@@ -1,6 +1,6 @@
 @import '~styles/main-utils';
 
-@import './deaf-sayings.json';
+@import './deafsayings.json';
 
 $desktop-width: unquote('#{map-get($desktopScreen, 'width')}px');
 $desktop-height: unquote('#{map-get($desktopScreen, 'height')}px');
@@ -22,7 +22,7 @@ $image-width: 228px;
   transition: background-color $duration ease-in-out;
 }
 
-.deaf-sayings {
+.deafsayings {
   position: absolute;
 
   top: 50%;
@@ -57,10 +57,10 @@ $image-width: 228px;
   }
 }
 
-.deaf-sayings__block {
+.deafsayings__block {
   position: relative;
 
-  border: 1px solid;
+  border: ($border-width/2) solid;
   border-color: rgba($color-main, 0.12);
   border-color: color-rgba('main', 0.12);
 
@@ -96,6 +96,15 @@ $image-width: 228px;
     cursor: pointer;
     user-select: none;
 
+    background-color: inherit;
+    border: none;
+
+    color: currentColor;
+
+    > * {
+      pointer-events: none !important;
+    }
+
     &::before {
       content: '';
       @include content-hover();
@@ -108,35 +117,59 @@ $image-width: 228px;
     &:active::before {
       @include content-hover(100ms, $opacity-selected);
     }
+
+    &:focus {
+      outline: 0;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+
+        border: none;
+
+        outline: 1px solid;
+        outline-color: $btn-focus-color;
+
+        z-index: 1;
+      }
+    }
   }
 }
 
-.deaf-sayings__logo {
+.deafsayings__logo {
   display: flex;
   align-items: center;
 
   height: 100%;
 }
 
-.deaf-sayings__author {
+.deafsayings__author {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  overflow: hidden;
 
   height: 100%;
 
-  span {
-    display: block;
-  }
-
   &_content {
-    min-height: 158px;
+    min-height: 162px;
+
+    > * {
+      display: block;
+    }
   }
 
   &_name {
+    display: block;
     font-weight: $font-weight-bold;
     font-size: $h1-size;
-    line-height: $font-height-condensed-ultra;
+    line-height: $font-height-condensed;
     margin-bottom: map-get($spacers, 6);
   }
 
@@ -153,7 +186,7 @@ $image-width: 228px;
   }
 }
 
-.deaf-sayings__language {
+.deafsayings__language {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,14 +194,14 @@ $image-width: 228px;
   height: 100%;
 }
 
-.deaf-sayings__develop-by {
+.deafsayings__develop-by {
   display: flex;
   align-items: center;
 
   height: 100%;
 }
 
-.deaf-sayings__links {
+.deafsayings__links {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -176,7 +209,7 @@ $image-width: 228px;
   height: 100%;
 }
 
-.deaf-sayings__navigation {
+.deafsayings__navigation {
   display: flex;
   justify-content: center;
 
@@ -214,7 +247,7 @@ $image-width: 228px;
   }
 }
 
-.deaf-sayings__image {
+.deafsayings__image {
   position: absolute;
   right: 0;
   top: 0;
@@ -227,10 +260,19 @@ $image-width: 228px;
   background-color: rgba($color-main, 0.12);
   background-color: color-rgba('main', 0.12);
 
-  img {
+  z-index: 10;
+
+  > * {
     position: absolute;
     right: -$border-width;
     top: -$border-width;
+
     height: calc(100% + #{$border-width * 2});
+    width: calc(100% + #{$border-width});
+
+    * {
+      height: 100%;
+      width: 100%;
+    }
   }
 }

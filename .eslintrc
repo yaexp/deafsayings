@@ -28,12 +28,6 @@
       "babel-plugin-root-import": [{
         "rootPathPrefix": "~/"
       }, {
-        "rootPathPrefix": "~src/",
-        "rootPathSuffix": "./src"
-      }, {
-        "rootPathPrefix": "~mockdata/",
-        "rootPathSuffix": "./mockdata"
-      }, {
         "rootPathPrefix": "~styles/",
         "rootPathSuffix": "./src/assets/styles"
       }]
@@ -51,6 +45,7 @@
     "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
     "quotes": ["warn", "single"],
     "no-unused-vars": ["warn", { "args": "after-used" }],
+    "no-unused-expressions": ["warn", { "allowShortCircuit": true }],
     "comma-dangle": ["error", {
       "arrays": "always-multiline",
       "objects": "always-multiline",
@@ -60,6 +55,7 @@
     }],
 
     "import/no-unresolved": ["warn", { "commonjs": true }],
+    "import/namespace": ["warn", { "allowComputed": false }],
 
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",

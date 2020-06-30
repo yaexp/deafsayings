@@ -4,7 +4,7 @@
 $color-background: map-deep-get($colors, 'light', 'background') !default;
 $color-background-l1: map-deep-get($colors, 'light', 'background-l1') !default;
 $color-main: map-deep-get($colors, 'light', 'main') !default;
-$color-focus: map-deep-get($colors, 'light', 'focus') !default;
+$color-focus: color-rgb('main') !default;
 
 
 // Breakpoints
@@ -46,7 +46,7 @@ $font-typefaces: map-deep-get($font, 'typefaces') !default;
 
 // Font family
 $font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
-$font-family-primary: map-deep-get($font-typefaces, 'primary', 'family') !default;
+$font-family-primary: map-deep-get($font-typefaces, 'primary', 'family'), $font-family !default;
 
 // Font size
 $font-size: rem(16px) !default;
@@ -68,7 +68,6 @@ $font-weight-bold: 700 !default;
 
 $btn-focus-width: 2px !default;
 $btn-focus-color: $color-focus !default;
-$btn-focus-box-shadow: 0 0 0 $btn-focus-width $btn-focus-color !default;
 
 $btn-bg-opacity: 0.1 !default;
 $btn-bg-opacity-hover: $btn-bg-opacity + $opacity-hover !default;

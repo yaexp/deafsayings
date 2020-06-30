@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Icon } from '~src/components';
+import { Icon } from '~/src/components';
 
 import './label.scss';
 
@@ -13,6 +13,8 @@ const Label = ({
   href,
   ...props
 }) => {
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
+
   const component = href ? 'a' : 'button';
 
   props = {
@@ -23,6 +25,17 @@ const Label = ({
     }),
     href,
     target: '_blank',
+    onMouseEnter() {
+      setIsMouseEnter(true);
+    },
+    onMouseLeave() {
+      setIsMouseEnter(false);
+    },
+    onFocus(event) {
+      if (isMouseEnter) {
+        event.target.blur();
+      }
+    },
     ...props,
   };
 

@@ -1,1 +1,1 @@
-export * from './deaf-sayings';
+export * from './deafsayings';

@@ -6,11 +6,12 @@ import classNames from 'classnames';
 
 const styleJson = require('~styles/main.variables.json');
 
-import { Icon } from '~src/components';
+import { Icon } from '~/src/components';
 
 import './ds-quote-theme.scss';
 
 const DsQuoteTheme = (props) => {
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
   const [themes, setThemes] = useState(getThemeGenerator());
   const [currentTheme, setCurrentTheme] = useState({});
 
@@ -26,6 +27,17 @@ const DsQuoteTheme = (props) => {
     className,
     onClick: () => {
       setCurrentTheme(themes.next());
+    },
+    onMouseEnter() {
+      setIsMouseEnter(true);
+    },
+    onMouseLeave() {
+      setIsMouseEnter(false);
+    },
+    onFocus(event) {
+      if (isMouseEnter) {
+        event.target.blur();
+      }
     },
     ...props,
   };
@@ -46,9 +58,11 @@ const DsQuoteTheme = (props) => {
   }, [currentTheme.done]);
 
   return (
-    <div {...props}>
-      <Icon iconName="contrast" />
-    </div>
+    <button {...props}>
+      <span>
+        <Icon iconName="contrast" />
+      </span>
+    </button>
   );
 };
 

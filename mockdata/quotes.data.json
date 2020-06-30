@@ -48,4 +48,29 @@
   "authorId": 7,
   "text": "Am I complaining about my deafness? No, I am not.",
   "size": 68
+}, {
+  "id": 11,
+  "authorId": 9,
+  "text": "Sign language is the noblest gift God has given to deaf people.",
+  "size": 68
+}, {
+  "id": 12,
+  "authorId": 10,
+  "text": "I'm not a deaf musician. I'm a musician who happens to be deaf.",
+  "size": 68
+}, {
+  "id": 13,
+  "authorId": 9,
+  "text": "As long as we have deaf people on earth, we will have signs.",
+  "size": 68
+}, {
+  "id": 14,
+  "authorId": 6,
+  "text": "At some point we have to stop and say, There's Marlee, not, There's the deaf actress.",
+  "size": 68
+}, {
+  "id": 15,
+  "authorId": 11,
+  "text": "I do love to interpret songs in American Sign Language.",
+  "size": 68
 }]

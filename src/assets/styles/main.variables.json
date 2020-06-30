@@ -4,11 +4,27 @@
       "background": "#eee",
       "background-l1": "#fff",
       "main": "#111",
-      "focus": "#00B2AA"
+      "cursor": "#eee"
     },
     "dark": {
       "background": "#111",
-      "main": "#b8b8b8"
+      "main": "#b8b8b8",
+      "cursor": "#eee"
+    },
+    "theme-1": {
+      "background": "#94D597",
+      "main": "#893D78",
+      "cursor": "#fff"
+    },
+    "theme-2": {
+      "background": "#FEC886",
+      "main": "#1B4B87",
+      "cursor": "#fff"
+    },
+    "theme-3": {
+      "background": "#A0D5EB",
+      "main": "#7B3EB4",
+      "cursor": "yellow"
     }
   },
 

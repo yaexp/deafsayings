@@ -57,4 +57,26 @@
   "placeOfBirth": "Caverswall, Staffordshire, England",
   "yearOfBirth": "1987",
   "status": "Born"
+}, {
+  "id": 9,
+  "name": "George Veditz",
+  "biography": "George William Veditz was a former president of National Association of the Deaf of the United States and was one of the first to film American Sign Language.",
+  "placeOfBirth": "Baltimore, Maryland, U.S.",
+  "yearOfBirth": "1861",
+  "yearOfDeath": "1937",
+  "status": "Lived"
+}, {
+  "id": 10,
+  "name": "Evelyn Glennie",
+  "biography": "Dame Evelyn Elizabeth Ann Glennie is the world's foremost, and first full-time, solo percussionist. She was selected as one of the two laureates for the Polar Music Prize of 2015. Evelyn Glennie is almost completely deaf, which means she listens to music with her body, not her ears.",
+  "placeOfBirth": "Aberdeenshire, Scotland",
+  "yearOfBirth": "1965",
+  "status": "Born"
+}, {
+  "id": 11,
+  "name": "Sean Berdy",
+  "biography": "Sean Berdy is a deaf American actor, producer and writer. He began his career as a child in the film sequel \"The Sandlot 2\" and starred in \"Switched at Birth\" for five seasons. Berdy stars in Netflix's \"The Society\", as one of the main characters. He was nominated for TV Breakout Star for the \"Teen Choice Awards 2011\".",
+  "placeOfBirth": "Boca Raton, Florida, U.S.",
+  "yearOfBirth": "1993",
+  "status": "Born"
 }]
