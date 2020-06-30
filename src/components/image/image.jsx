@@ -2,36 +2,65 @@ import React, {
   useState,
   useEffect,
 } from 'react';
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './image.scss';
 
-const Image = ({
-  src,
-  ...props
-}) => {
+const useImageChange = ({ src }) => {
   const [isLoading, setIsLoading] = useState(false);
-
-  const className = classNames({
-    'image': true,
-    '_loading': isLoading,
-  });
-
-  props = {
-    className,
-    src,
-    onLoad: () => {
-      setIsLoading(false);
-    },
-    ...props,
-  };
+  const [imageMessage, setImageMessage] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
+    setImageMessage('Loading ...');
   }, [src]);
 
-  return <img {...props} />;
+  return {
+    isLoading,
+    imageMessage,
+    handleLoad() {
+      setIsLoading(false);
+      setImageMessage(null);
+    },
+    handleError() {
+      setIsLoading(false);
+      setImageMessage('Image not loaded');
+    },
+  };
+};
+
+const Image = ({ src, ...props }) => {
+  const {
+    isLoading,
+    imageMessage,
+    handleLoad,
+    handleError,
+  } = useImageChange({ src, ...props });
+
+  props = {
+    className: classNames({
+      'image': true,
+      '_loading': isLoading,
+    }),
+    ...props,
+  };
+
+  const imgProps = {
+    src,
+    onLoad: handleLoad,
+    onError: handleError,
+  };
+
+  return (
+    <div {...props}>
+      { imageMessage && <span className="image__message">{ imageMessage }</span> }
+      <div className="image__img" style={{ backgroundImage: `url(${src})` }}>
+        <img {...imgProps}/>
+      </div>
+    </div>
+  );
 };
 
 Image.propTypes = {

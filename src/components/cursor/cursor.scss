@@ -1,0 +1,77 @@
+@import '~styles/main-utils';
+
+@mixin make-cursor-circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: $size * 2;
+
+  transform: translate(-50%, -50%);
+}
+
+* {
+  cursor: none !important;
+  user-select: none !important;
+}
+
+.cursor {
+  position: fixed;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  pointer-events: none;
+  mix-blend-mode: difference;
+
+  &._hide {
+    .cursor__dot,
+    .cursor__circle {
+      @include make-cursor-circle(0);
+      opacity: 0;
+    }
+  }
+
+  &._click {
+    .cursor__circle {
+      @include make-cursor-circle(1.5em);
+    }
+
+    &._hover .cursor__dot {
+      @include make-cursor-circle(2.75em);
+    }
+  }
+
+  &._hover {
+    .cursor__circle {
+      opacity: 0;
+    }
+    .cursor__dot {
+      @include make-cursor-circle(3em);
+    }
+  }
+}
+
+.cursor__dot,
+.cursor__circle {
+  position: absolute;
+  opacity: 1;
+
+  transition:
+    height 200ms,
+    width 200ms,
+    border-radius 200ms,
+    background-color 200ms;
+}
+
+.cursor__dot {
+  @include make-cursor-circle(0.25em);
+
+  background-color: color-rgb('cursor');
+}
+
+.cursor__circle {
+  @include make-cursor-circle(1.75em);
+
+  background-color: color-rgba('cursor', 0.12);
+}

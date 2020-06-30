@@ -8,14 +8,15 @@ import classNames from 'classnames';
 
 import {
   shuffle,
-} from '~src/utils';
+} from '~/src/utils';
 
 import {
   getQuote,
   getQuoteIds,
-} from '~src/services/quote.service';
+} from '~/src/services/quote.service';
 
-import { Icon } from '~src/components';
+import { Icon, BlockEffect } from '~/src/components';
+import { useWait } from '~/src/hooks';
 
 import './ds-quote-random.scss';
 
@@ -24,8 +25,10 @@ const DsQuoteRandom = ({
   onClick,
   ...props
 }) => {
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
   const [quoteIds, setQuoteIds] = useState([]);
   const [randomGenerator, setRandomGenerator] = useState({});
+  const { isWaiting } = useWait();
 
   const className = classNames({
     'ds-quote-random': true,
@@ -61,21 +64,34 @@ const DsQuoteRandom = ({
 
   props = {
     className,
-    title: 'Random quote',
     onClick: (event) => {
-      if (onClick) {
-        const newQuoteId = getRandomQuoteId();
+      const isTextRevealerWaiting = isWaiting(BlockEffect.blockElementName);
 
-        onClick(event, getQuote(newQuoteId));
+      if (!isTextRevealerWaiting && onClick) {
+        const newQuoteId = getRandomQuoteId();
+        onClick(event, { data: getQuote(newQuoteId) });
+      }
+    },
+    onMouseEnter() {
+      setIsMouseEnter(true);
+    },
+    onMouseLeave() {
+      setIsMouseEnter(false);
+    },
+    onFocus(event) {
+      if (isMouseEnter) {
+        event.target.blur();
       }
     },
     ...props,
   };
 
   return (
-    <div {...props}>
-      <Icon iconName="renew" />
-    </div>
+    <button {...props}>
+      <span>
+        <Icon iconName="renew" />
+      </span>
+    </button>
   );
 };
 

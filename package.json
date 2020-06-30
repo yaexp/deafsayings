@@ -1,6 +1,6 @@
 {
   "name": "@yaexp/deafsayings",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "homepage": "http://yaexp.github.io/deafsayings",
   "author": "Yaroslav Kalinkin <yakalinkin@gmail.com>",
   "license": "MIT",
@@ -13,9 +13,6 @@
     "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d dist"
   },
-  "browserslist": [
-    "defaults"
-  ],
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
@@ -36,9 +33,10 @@
     "@babel/preset-react": "^7.8.3",
     "@babel/register": "^7.8.3",
     "@hot-loader/react-dom": "^16.11.0",
+    "animejs": "^3.2.0",
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
-    "babel-plugin-root-import": "^6.4.1",
+    "babel-plugin-root-import": "^6.5.0",
     "cache-loader": "^4.1.0",
     "chalk": "^3.0.0",
     "classnames": "^2.2.6",
@@ -47,7 +45,6 @@
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
     "favicons-webpack-plugin": "^2.1.0",
-    "file-loader": "^5.0.2",
     "fontfaceobserver": "^2.1.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",

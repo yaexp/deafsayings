@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Logo } from '~src/components';
+import { Logo } from '~/src/components';
 
 import { loadedDelay as LOADED_DELAY } from './splash-screen.variables.json';
 
@@ -17,11 +17,17 @@ const SplashScreen = ({ isLoading, children }) => {
   });
 
   useEffect(() => {
+    let loadingTimer;
+
     if(!isLoading) {
-      setTimeout(() => {
+      loadingTimer = setTimeout(() => {
         setIsLoaded(true);
       }, LOADED_DELAY);
     }
+
+    return () => {
+      clearTimeout(loadingTimer);
+    };
   });
 
   return <>

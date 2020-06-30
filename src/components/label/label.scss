@@ -16,10 +16,12 @@
   color: $color-main;
   color: color-rgb('main');
 
+  > * {
+    pointer-events: none !important;
+  }
+
   &[href] {
-    transition:
-      background-color 250ms ease-in-out,
-      box-shadow 100ms ease-in-out;
+    transition: background-color 250ms ease-in-out;
 
     &:hover {
       background-color: rgba($color-main, $btn-bg-opacity-hover);
@@ -32,10 +34,27 @@
 
     &:focus {
       outline: 0;
-      box-shadow: $btn-focus-box-shadow;
 
       background-color: rgba($color-main, $btn-bg-opacity-focus);
       background-color: color-rgba('main', $btn-bg-opacity-focus);
+
+      &::after {
+        content: '';
+
+        position: absolute;
+
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+
+        border: none;
+
+        outline: 1px solid;
+        outline-color: $btn-focus-color;
+
+        z-index: 1;
+      }
     }
 
     &:active {
