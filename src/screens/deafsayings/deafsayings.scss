@@ -266,7 +266,9 @@ $image-width: 228px;
     position: absolute;
     right: -$border-width;
     top: -$border-width;
+
     height: calc(100% + #{$border-width * 2});
+    width: calc(100% + #{$border-width});
 
     * {
       height: 100%;

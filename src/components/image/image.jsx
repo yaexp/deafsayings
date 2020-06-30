@@ -10,21 +10,34 @@ import './image.scss';
 
 const useImageChange = ({ src }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [imageMessage, setImageMessage] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
+    setImageMessage('Loading ...');
   }, [src]);
 
   return {
     isLoading,
+    imageMessage,
     handleLoad() {
       setIsLoading(false);
+      setImageMessage(null);
+    },
+    handleError() {
+      setIsLoading(false);
+      setImageMessage('Image not loaded');
     },
   };
 };
 
 const Image = ({ src, ...props }) => {
-  const { isLoading, handleLoad } = useImageChange({ src, ...props });
+  const {
+    isLoading,
+    imageMessage,
+    handleLoad,
+    handleError,
+  } = useImageChange({ src, ...props });
 
   props = {
     className: classNames({
@@ -37,11 +50,15 @@ const Image = ({ src, ...props }) => {
   const imgProps = {
     src,
     onLoad: handleLoad,
+    onError: handleError,
   };
 
   return (
-    <div {...props} style={{ backgroundImage: `url(${src})` }}>
-      <img {...imgProps}/>
+    <div {...props}>
+      { imageMessage && <span className="image__message">{ imageMessage }</span> }
+      <div className="image__img" style={{ backgroundImage: `url(${src})` }}>
+        <img {...imgProps}/>
+      </div>
     </div>
   );
 };

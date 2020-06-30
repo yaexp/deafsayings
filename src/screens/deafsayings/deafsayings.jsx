@@ -149,7 +149,6 @@ const DeafSayings = () => {
           <BlockEffect
             effectType={BlockEffect.effectType.IMAGE_REVEAL_EFFECT}
             directType={directType}
-            // delayIn={100}
             delayOut={100}
             deps={ [quote.author.id] }
           >
