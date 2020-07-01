@@ -1,6 +1,6 @@
 {
   "name": "@yaexp/deafsayings",
-  "version": "0.8.1",
+  "version": "0.8.3",
   "homepage": "http://yaexp.github.io/deafsayings",
   "author": "Yaroslav Kalinkin <yakalinkin@gmail.com>",
   "license": "MIT",
@@ -73,6 +73,6 @@
   },
   "resolutions": {
     "**/fsevents": "^2.1.2",
-    "**/url-regex": "^5.0.0"
+    "**/url-regex": "5.0.0"
   }
 }

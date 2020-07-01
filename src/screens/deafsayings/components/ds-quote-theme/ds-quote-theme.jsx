@@ -90,11 +90,11 @@ const DsQuoteTheme = (props) => {
   }, [currentTheme.done]);
 
   return (
-    <button {...props}>
+    <div {...props} tabIndex="0" role="button">
       <span>
         <Icon iconName="contrast" />
       </span>
-    </button>
+    </div>
   );
 };
 

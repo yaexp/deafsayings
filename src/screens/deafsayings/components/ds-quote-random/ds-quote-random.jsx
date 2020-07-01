@@ -87,11 +87,11 @@ const DsQuoteRandom = ({
   };
 
   return (
-    <button {...props}>
+    <div {...props} tabIndex="0" role="button">
       <span>
         <Icon iconName="renew" />
       </span>
-    </button>
+    </div>
   );
 };
 
