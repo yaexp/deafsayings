@@ -2499,9 +2499,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001087, caniuse-lite@^1.0.30001088:
-  version "1.0.30001090"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001090.tgz#ff7766332f60e80fea4903f30d360622e5551850"
-  integrity sha512-QzPRKDCyp7RhjczTPZaqK3CjPA5Ht2UnXhZhCI4f7QiB5JK6KEuZBxIzyWnB3wO4hgAj4GMRxAhuiacfw0Psjg==
+  version "1.0.30001091"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001091.tgz#84908c67b98e02c2a56d4afa51e6458b53fb5321"
+  integrity sha512-ECd8gfBBpv0GKsEYY5052+8PBjExiugDoi3dfkJcxujh2mf7kiuDvb1o27GXlOOGopKiIPYEX8XDPYj7eo3E9w==
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -3920,9 +3920,9 @@ eslint-plugin-react-hooks@^2.5.0:
   integrity sha512-Y2c4b55R+6ZzwtTppKwSmK/Kar8AdLiC2f9NADCuxbcTgPPg41Gyqa6b9GppgXSvCtkRw43ZE86CT5sejKC6/g==
 
 eslint-plugin-react@^7.18.3:
-  version "7.20.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.20.2.tgz#b0d72abcd94c59c842338aa09c800808219ea77d"
-  integrity sha512-J3BdtsPNbcF/CG9HdyLx7jEtC7tuODODGldkS9P1zU2WMoHPdcsN2enUopgIaec5f9eYhSFI5zQAaWA/dgv2zw==
+  version "7.20.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.20.3.tgz#0590525e7eb83890ce71f73c2cf836284ad8c2f1"
+  integrity sha512-txbo090buDeyV0ugF3YMWrzLIUqpYTsWSDZV9xLSmExE1P/Kmgg9++PD931r+KEWS66O1c9R4srLVVHmeHpoAg==
   dependencies:
     array-includes "^3.1.1"
     array.prototype.flatmap "^1.2.3"
@@ -10178,7 +10178,7 @@ url-parse@^1.4.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-url-regex@^3.0.0, url-regex@^5.0.0:
+url-regex@5.0.0, url-regex@^3.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/url-regex/-/url-regex-5.0.0.tgz#8f5456ab83d898d18b2f91753a702649b873273a"
   integrity sha512-O08GjTiAFNsSlrUWfqF1jH0H1W3m35ZyadHrGv5krdnmPPoxP27oDTqux/579PtaroiSGm5yma6KT1mHFH6Y/g==

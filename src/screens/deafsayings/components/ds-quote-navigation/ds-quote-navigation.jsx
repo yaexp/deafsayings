@@ -76,11 +76,11 @@ const DsQuoteNavigation = ({
   };
 
   return (
-    <button {...props}>
+    <div {...props} tabIndex="0" role="button">
       <span>
         { iconName && <Icon iconName={iconName} /> }
       </span>
-    </button>
+    </div>
   );
 };
 
