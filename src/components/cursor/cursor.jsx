@@ -36,6 +36,12 @@ const Cursor = function () {
         if (!element.hasAttribute('disabled')) {
           setIsCursorHover(true);
         }
+        break;
+      case 'DIV':
+        if (element.getAttribute('role') === 'button') {
+          setIsCursorHover(true);
+        }
+        break;
     }
   }
 
