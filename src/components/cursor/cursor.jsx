@@ -82,21 +82,21 @@ const Cursor = function () {
   };
 
   useLayoutEffect(() => {
-    document.addEventListener('mouseenter', handleMouseEnter);
-    document.addEventListener('mouseover', handleMouseOver);
-    document.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mousemove', updateMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-    document.addEventListener('mouseout', handleMouseOut);
-    document.addEventListener('mouseleave', handleMouseLeave);
+    document.getElementById('root').addEventListener('mouseenter', handleMouseEnter);
+    document.getElementById('root').addEventListener('mouseover', handleMouseOver);
+    document.getElementById('root').addEventListener('mousedown', handleMouseDown);
+    document.getElementById('root').addEventListener('mousemove', updateMouseMove);
+    document.getElementById('root').addEventListener('mouseup', handleMouseUp);
+    document.getElementById('root').addEventListener('mouseout', handleMouseOut);
+    document.getElementById('root').addEventListener('mouseleave', handleMouseLeave);
     return () => {
-      document.removeEventListener('mouseenter', handleMouseEnter);
-      document.removeEventListener('mouseover', handleMouseOver);
-      document.removeEventListener('mousemove', updateMouseMove);
-      document.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseup', handleMouseUp);
-      document.removeEventListener('mouseout', handleMouseOut);
-      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.getElementById('root').removeEventListener('mouseenter', handleMouseEnter);
+      document.getElementById('root').removeEventListener('mouseover', handleMouseOver);
+      document.getElementById('root').removeEventListener('mousemove', updateMouseMove);
+      document.getElementById('root').removeEventListener('mousedown', handleMouseDown);
+      document.getElementById('root').removeEventListener('mouseup', handleMouseUp);
+      document.getElementById('root').removeEventListener('mouseout', handleMouseOut);
+      document.getElementById('root').removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
