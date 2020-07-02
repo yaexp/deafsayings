@@ -13,7 +13,7 @@ const Label = ({
   href,
   ...props
 }) => {
-  const [isMouseEnter, setIsMouseEnter] = useState(false);
+  const [isMouseDown, setIsMouseDown] = useState(false);
 
   const component = href ? 'a' : 'button';
 
@@ -25,14 +25,14 @@ const Label = ({
     }),
     href,
     target: '_blank',
-    onMouseEnter() {
-      setIsMouseEnter(true);
+    onMouseDown() {
+      setIsMouseDown(true);
     },
-    onMouseLeave() {
-      setIsMouseEnter(false);
+    onMouseUp() {
+      setIsMouseDown(false);
     },
     onFocus(event) {
-      if (isMouseEnter) {
+      if (isMouseDown) {
         event.target.blur();
       }
     },
