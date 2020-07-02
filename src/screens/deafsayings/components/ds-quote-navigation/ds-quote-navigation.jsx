@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef   } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -19,7 +19,8 @@ const DsQuoteNavigation = ({
     onClick,
     ...props
   }) => {
-  const [isMouseEnter, setIsMouseEnter] = useState(false);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const buttonRef = useRef();
   const { isWaiting } = useWait();
 
   const iconName = isDirectType() ? Icon.statics.ARROW_DOWN : Icon.statics.ARROW_UP;
@@ -46,7 +47,7 @@ const DsQuoteNavigation = ({
 
   props = {
     className,
-    onClick: (event) => {
+    onClick(event) {
       const isTextRevealerWaiting = isWaiting(BlockEffect.blockElementName);
 
       if (!isTextRevealerWaiting && onClick) {
@@ -61,14 +62,19 @@ const DsQuoteNavigation = ({
         onClick(event, { data: getQuote(newQuoteId), directType });
       }
     },
-    onMouseEnter() {
-      setIsMouseEnter(true);
+    onKeyDown(event) {
+      if (event.which === 13) {
+        buttonRef.current.click();
+      }
     },
-    onMouseLeave() {
-      setIsMouseEnter(false);
+    onMouseDown() {
+      setIsMouseDown(true);
+    },
+    onMouseUp() {
+      setIsMouseDown(false);
     },
     onFocus(event) {
-      if (isMouseEnter) {
+      if (isMouseDown) {
         event.target.blur();
       }
     },
@@ -76,7 +82,7 @@ const DsQuoteNavigation = ({
   };
 
   return (
-    <div {...props} tabIndex="0" role="button">
+    <div {...props} tabIndex="0" role="button" ref={buttonRef}>
       <span>
         { iconName && <Icon iconName={iconName} /> }
       </span>

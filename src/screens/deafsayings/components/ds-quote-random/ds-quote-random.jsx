@@ -1,6 +1,7 @@
 import React, {
   useState,
   useEffect,
+  useRef,
 } from 'react';
 
 import PropTypes from 'prop-types';
@@ -25,9 +26,10 @@ const DsQuoteRandom = ({
   onClick,
   ...props
 }) => {
-  const [isMouseEnter, setIsMouseEnter] = useState(false);
+  const [isMouseDown, setIsMouseDown] = useState(false);
   const [quoteIds, setQuoteIds] = useState([]);
   const [randomGenerator, setRandomGenerator] = useState({});
+  const buttonRef = useRef();
   const { isWaiting } = useWait();
 
   const className = classNames({
@@ -72,14 +74,19 @@ const DsQuoteRandom = ({
         onClick(event, { data: getQuote(newQuoteId) });
       }
     },
-    onMouseEnter() {
-      setIsMouseEnter(true);
+    onKeyDown(event) {
+      if (event.which === 13) {
+        buttonRef.current.click();
+      }
     },
-    onMouseLeave() {
-      setIsMouseEnter(false);
+    onMouseDown() {
+      setIsMouseDown(true);
+    },
+    onMouseUp() {
+      setIsMouseDown(false);
     },
     onFocus(event) {
-      if (isMouseEnter) {
+      if (isMouseDown) {
         event.target.blur();
       }
     },
@@ -87,7 +94,7 @@ const DsQuoteRandom = ({
   };
 
   return (
-    <div {...props} tabIndex="0" role="button">
+    <div {...props} tabIndex="0" role="button" ref={buttonRef}>
       <span>
         <Icon iconName="renew" />
       </span>
