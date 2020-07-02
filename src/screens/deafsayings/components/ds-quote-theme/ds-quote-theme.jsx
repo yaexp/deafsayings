@@ -5,8 +5,6 @@ import React, {
 } from 'react';
 import classNames from 'classnames';
 
-import isEmpty from 'lodash/isEmpty';
-
 const styleJson = require('~styles/main.variables.json');
 
 import { Icon } from '~/src/components';
@@ -43,8 +41,9 @@ let themes = (() => {
 
 const DsQuoteTheme = (props) => {
   const isFirstChange = useRef(true);
-  const [isMouseEnter, setIsMouseEnter] = useState(false);
+  const [isMouseDown, setIsMouseDown] = useState(false);
   const [currentTheme, setCurrentTheme] = useState({ value: DOM.html.getTheme() });
+  const buttonRef = useRef();
 
   const className = classNames({
     'ds-quote-theme': true,
@@ -55,14 +54,19 @@ const DsQuoteTheme = (props) => {
     onClick: () => {
       setCurrentTheme(themes.next());
     },
-    onMouseEnter() {
-      setIsMouseEnter(true);
+    onKeyDown(event) {
+      if (event.which === 13) {
+        buttonRef.current.click();
+      }
     },
-    onMouseLeave() {
-      setIsMouseEnter(false);
+    onMouseDown() {
+      setIsMouseDown(true);
+    },
+    onMouseUp() {
+      setIsMouseDown(false);
     },
     onFocus(event) {
-      if (isMouseEnter) {
+      if (isMouseDown) {
         event.target.blur();
       }
     },
@@ -90,7 +94,7 @@ const DsQuoteTheme = (props) => {
   }, [currentTheme.done]);
 
   return (
-    <div {...props} tabIndex="0" role="button">
+    <div {...props} tabIndex="0" role="button" ref={buttonRef}>
       <span>
         <Icon iconName="contrast" />
       </span>
