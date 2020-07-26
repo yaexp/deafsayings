@@ -29,7 +29,7 @@
   },
 
   "font": {
-    "path": " '../fonts' ",
+    "path": " 'fonts' ",
     "typefaces": {
       "primary": {
         "name": "inter",

@@ -3,7 +3,7 @@ import os from 'os';
 import { argv } from 'yargs';
 import { merge } from 'lodash';
 
-import userConfig from '~/user.config.json';
+import userConfig from '../user.config.json';
 
 // network address
 const interfaces = os.networkInterfaces();
@@ -30,14 +30,24 @@ const defaultPaths = {};
 defaultPaths.rootPath = process.cwd();
 defaultPaths.devFolder = 'src';
 defaultPaths.prodFolder = 'dist';
-defaultPaths.assetsFolder = 'assets';
-defaultPaths.root = {
+defaultPaths.assetsFolder = 'public';
+defaultPaths.imagesFolder = 'images';
+defaultPaths.fontsFolder = 'fonts';
+defaultPaths.stylesFolder = 'styles';
+defaultPaths.scriptsFolder = 'scripts';
+
+const paths = merge(defaultPaths, userConfig.paths);
+paths.root = {
   dev: path.join(defaultPaths.rootPath, defaultPaths.devFolder),
   prod: path.join(defaultPaths.rootPath, defaultPaths.prodFolder),
+  assets: path.join(defaultPaths.rootPath, defaultPaths.assetsFolder),
+};
+paths.assets = {
+  images: path.join(paths.root.assets, defaultPaths.imagesFolder),
+  fonts: path.join(paths.root.assets, defaultPaths.fontsFolder),
 };
 
-export const paths = merge(defaultPaths, userConfig.paths);
-
+export { paths };
 
 //
 // Default config
@@ -67,7 +77,10 @@ defaultConfig.webpack = {
   mode: defaultConfig.env,
   resolve: {
     alias: {
-      'styles': path.join(paths.root.dev, paths.assetsFolder, 'styles'),
+      'styles': path.join(paths.root.dev, 'styles'),
+      // 'images': paths.assets.images,
+      'images': path.join(paths.root.assets, 'images'),
+      'fonts': paths.assets.fonts,
     },
   },
   stats: {

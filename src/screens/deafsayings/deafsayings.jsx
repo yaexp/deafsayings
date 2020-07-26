@@ -10,14 +10,14 @@ import isEmpty from 'lodash/isEmpty';
 import {
   getQuote,
   getQuoteCount,
-} from '~/src/services/quote.service';
+} from '~/services/quote.service';
 
 import {
   Logo,
   Label,
   Image,
   BlockEffect,
-} from '~/src/components';
+} from '~/components';
 
 import {
   DsQuoteId,
@@ -27,7 +27,7 @@ import {
   DsQuoteTheme,
 } from './components';
 
-import { desktopScreen as DESKTOP_SCREEN } from './deafsayings.json';
+import { desktopScreen as DESKTOP_SCREEN } from './deafsayings.scss.json';
 
 import './deafsayings.scss';
 

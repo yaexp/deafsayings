@@ -1,6 +1,6 @@
 @import '~styles/main-utils';
 
-@import './deafsayings.json';
+@import './deafsayings.scss.json';
 
 $desktop-width: unquote('#{map-get($desktopScreen, 'width')}px');
 $desktop-height: unquote('#{map-get($desktopScreen, 'height')}px');

@@ -5,9 +5,9 @@ import React, {
 } from 'react';
 import classNames from 'classnames';
 
-const styleJson = require('~styles/main.variables.json');
+import styleJson from '~/styles/main.scss.json';
 
-import { Icon } from '~/src/components';
+import { Icon } from '~/components';
 
 import './ds-quote-theme.scss';
 

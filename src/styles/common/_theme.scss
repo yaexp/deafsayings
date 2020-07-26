@@ -1,0 +1,37 @@
+@mixin light-mode {
+  @include color-theme($colors, 'light');
+}
+
+@mixin dark-mode {
+  @include color-theme($colors, 'dark');
+}
+
+:root {
+  @include light-mode;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-mode;
+  }
+}
+
+[data-theme="light"] {
+  @include light-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}
+
+[data-theme="theme-1"] {
+  @include color-theme($colors, 'theme-1');
+}
+
+[data-theme="theme-2"] {
+  @include color-theme($colors, 'theme-2');
+}
+
+[data-theme="theme-3"] {
+  @include color-theme($colors, 'theme-3');
+}

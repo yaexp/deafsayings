@@ -10,10 +10,11 @@
     "react-hot-loader/babel",
     ["babel-plugin-root-import", {
       "paths": [{
-        "rootPathPrefix": "~/"
+        "rootPathPrefix": "~/",
+        "rootPathSuffix": "./src"
       }, {
-        "rootPathPrefix": "~styles/",
-        "rootPathSuffix": "./src/assets/styles"
+        "rootPathPrefix": "~public/",
+        "rootPathSuffix": "./public"
       }]
     }]
   ]

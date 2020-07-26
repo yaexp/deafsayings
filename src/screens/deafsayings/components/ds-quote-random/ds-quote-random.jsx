@@ -9,15 +9,15 @@ import classNames from 'classnames';
 
 import {
   shuffle,
-} from '~/src/utils';
+} from '~/utils';
 
 import {
   getQuote,
   getQuoteIds,
-} from '~/src/services/quote.service';
+} from '~/services/quote.service';
 
-import { Icon, BlockEffect } from '~/src/components';
-import { useWait } from '~/src/hooks';
+import { Icon, BlockEffect } from '~/components';
+import { useWait } from '~/hooks';
 
 import './ds-quote-random.scss';
 
