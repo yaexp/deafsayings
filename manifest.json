@@ -1,5 +1,10 @@
 {
-  "styles/app.css": "styles/app_7023f81a06d92bf99c4a.css",
-  "scripts/app.js": "scripts/app_7023f81a06d92bf99c4a.js",
-  "scripts/vendor.js": "scripts/vendor_7023f81a06d92bf99c4a.js"
+  "fonts/inter-400-normal.woff": "fonts/inter-400-normal.woff",
+  "fonts/inter-400-normal.woff2": "fonts/inter-400-normal.woff2",
+  "fonts/inter-700-normal.woff": "fonts/inter-700-normal.woff",
+  "fonts/inter-700-normal.woff2": "fonts/inter-700-normal.woff2",
+  "images/noise.jpg": "images/noise.jpg",
+  "styles/app.css": "styles/app_5c4bd1332d062624e372.css",
+  "scripts/app.js": "scripts/app_5c4bd1332d062624e372.js",
+  "scripts/vendor.js": "scripts/vendor_5c4bd1332d062624e372.js"
 }
