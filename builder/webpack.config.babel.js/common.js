@@ -1,3 +1,4 @@
+import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
@@ -16,15 +17,15 @@ export default (paths, config) => {
     context: paths.root.dev,
     output: {
       path: paths.root.prod,
-      publicPath: config.webpack.publicPath || '',
-      filename: `scripts/${assetsFilenames}.js`,
+      publicPath: paths.publicUrl,
+      filename: `${paths.scriptsFolder}/${assetsFilenames}.js`,
     },
     module: {
       rules: [
 
         // javascript
         {
-          test: /\.jsx?$/,
+          test: /\.jsx?$/i,
           exclude: /node_modules/,
           include: paths.root.dev,
           use: [
@@ -35,15 +36,49 @@ export default (paths, config) => {
 
         // styles
         {
-          test: /\.scss$/,
+          test: /\.scss$/i,
           exclude: /node_modules/,
           include: paths.root.dev,
           use: [
             { loader: MiniCssExtractPlugin.loader, options: { hmr: config.enabled.watcher } },
             { loader: 'cache-loader' },
-            { loader: 'css-loader', options: { url: false, sourceMap: config.enabled.sourceMaps } },
+            { loader: 'css-loader', options: { sourceMap: config.enabled.sourceMaps } },
             { loader: 'postcss-loader', options: { config: { path: __dirname, ctx: config } } },
             { loader: 'sass-loader', options: { sassOptions: { importer: [jsonImporter(), globImporter()] } }},
+          ],
+        },
+
+        // images
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          exclude: /node_modules/,
+          include: [paths.root.assets, paths.root.dev],
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: paths.imagesFolder,
+                publicPath: `../${paths.imagesFolder}`,
+              },
+            },
+          ],
+        },
+
+        // fonts
+        {
+          test: /\.(woff2?)$/i,
+          exclude: /node_modules/,
+          include: [paths.root.assets, paths.root.dev],
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: paths.fontsFolder,
+                publicPath: `../${paths.fontsFolder}`,
+              },
+            },
           ],
         },
       ],
@@ -52,23 +87,26 @@ export default (paths, config) => {
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [paths.root.prod],
       }),
-      new CopyWebpackPlugin([{
-        // :TODO: ~config paths.public.image
-        from: `${paths.assetsFolder}/images/**/*`,
-        to: '[1][name].[ext]',
-        test: new RegExp(`${paths.assetsFolder}[/]([a-z0-9-]+[/]).*$`, 'i'),
-        ignore: ['*.svg'],
-      }, {
-        // :TODO: ~config paths.public.fonts
-        from: `${paths.assetsFolder}/fonts/**/*`,
-        to: '[1][name].[ext]',
-        test: new RegExp(`${paths.assetsFolder}[/]([a-z0-9-]+[/]).*$`, 'i'),
-      }]),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: `${paths.assets.fonts}/**/*`,
+            to: `${paths.fontsFolder}/[name].[ext]`,
+          },
+          {
+            from: `${paths.assets.images}/**/*`,
+            to: `${paths.imagesFolder}/[name].[ext]`,
+            globOptions: {
+              ignore: ['**/*.svg'],
+            },
+          },
+        ],
+      }),
       new MiniCssExtractPlugin({
-        filename: `styles/${assetsFilenames}.css`,
+        filename: `${paths.stylesFolder}/${assetsFilenames}.css`,
       }),
       new HtmlWebpackPlugin({
-        template: 'index.html',
+        template: `../${paths.assetsFolder}/index.html`,
         minify: config.enabled.optimize ? {
           collapseWhitespace: true,
           removeComments: true,
@@ -78,7 +116,7 @@ export default (paths, config) => {
         } : false,
       }),
       new FaviconsWebpackPlugin({
-        logo: './favicon.png',
+        logo: `../${paths.assetsFolder}/favicon.png`,
         prefix: 'favicons',
         cache: false,
         inject: true,
@@ -95,6 +133,10 @@ export default (paths, config) => {
             coast: false,
           },
         },
+      }),
+      new webpack.EnvironmentPlugin({
+        NODE_ENV: config.env,
+        PUBLIC_URL: paths.publicUrl,
       }),
     ],
   }, config.webpack);

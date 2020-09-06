@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Icon } from '~/src/components';
+import { Icon } from '~/components';
 
 import './label.scss';
 

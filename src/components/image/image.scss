@@ -1,8 +1,15 @@
 @import '~styles/main-utils';
 
 .image {
+  position: relative;
+  display: block;
+
   width: auto;
   height: auto;
+
+  background-color: color-rgba('main', 0.15);
+
+  overflow: hidden;
 
   &._loading {
     .image__img {
@@ -10,6 +17,8 @@
 
       transition: opacity 100ms ease-in-out;
     }
+
+    animation: pulse 1200ms linear 500ms infinite;
   }
 
   img {
@@ -38,6 +47,17 @@
   justify-content: center;
   align-items: center;
 
-  color: $color-main;
   color: color-rgb('main');
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
 }

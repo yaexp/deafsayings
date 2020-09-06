@@ -31,7 +31,6 @@
     width: calc(#{map-get($spacers-em, 7)} - #{map-get($spacers-em, 2)} * 2);
     height: 2px;
 
-    background-color: $color-main;
     background-color: color-rgb('main');
   }
 }

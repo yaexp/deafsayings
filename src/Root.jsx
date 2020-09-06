@@ -5,19 +5,19 @@ import React, {
 } from 'react';
 
 import { hot } from 'react-hot-loader/root';
-import { loadFontGroup, isMobile } from '~/src/utils';
-import { WaitingProvider } from '~/src/hooks';
+import { loadFontGroup, isMobile } from '~/utils';
+import { WaitingProvider } from '~/hooks';
 
-const styleJson = require('~styles/main.variables.json');
+const styleJson = require('~/styles/main.scss.json');
 
 import {
   SplashScreen,
   WarningScreen,
   GrainyTexture,
   Cursor,
-} from '~/src/components';
+} from '~/components';
 
-import { DeafSayings } from '~/src/screens';
+import { DeafSayings } from '~/screens';
 
 const WARNING_MESSAGES = {
   W001: 'Temporarily not supported in mobile devices. Please, switch to a laptop or desktop to view.',

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { pad } from '~/src/utils';
-import { BlockEffect } from '~/src/components';
+import { pad } from '~/utils';
+import { BlockEffect } from '~/components';
 
 import './ds-quote-id.scss';
 

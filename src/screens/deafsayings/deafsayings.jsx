@@ -10,14 +10,14 @@ import isEmpty from 'lodash/isEmpty';
 import {
   getQuote,
   getQuoteCount,
-} from '~/src/services/quote.service';
+} from '~/services/quote.service';
 
 import {
   Logo,
   Label,
   Image,
   BlockEffect,
-} from '~/src/components';
+} from '~/components';
 
 import {
   DsQuoteId,
@@ -27,7 +27,7 @@ import {
   DsQuoteTheme,
 } from './components';
 
-import { desktopScreen as DESKTOP_SCREEN } from './deafsayings.json';
+import { desktopScreen as DESKTOP_SCREEN } from './deafsayings.scss.json';
 
 import './deafsayings.scss';
 
@@ -152,7 +152,7 @@ const DeafSayings = () => {
             delayOut={100}
             deps={ [quote.author.id] }
           >
-            <Image src={quote.author.img} />
+            <Image src={ process.env.PUBLIC_URL + quote.author.img} />
           </BlockEffect>
         </div>
         <div className="deafsayings__author">

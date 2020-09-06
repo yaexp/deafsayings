@@ -2,7 +2,7 @@ import anime from 'animejs';
 
 export const textRevealEffect = ({
   targets,
-  delay = anime.stagger(100),
+  delay = 100,
   duration,
   easing,
   effectType,
@@ -33,7 +33,7 @@ export const textRevealEffect = ({
   return anime
     .timeline({
       targets,
-      delay,
+      delay: anime.stagger(delay),
       duration,
       easing,
       ...keyframes,
