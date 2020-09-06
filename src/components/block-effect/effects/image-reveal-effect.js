@@ -2,6 +2,7 @@ import anime from 'animejs';
 
 export const imageRevealEffect = ({
   targets,
+  delay = 125,
   duration,
   easing,
   effectType,
@@ -29,7 +30,7 @@ export const imageRevealEffect = ({
   return anime
     .timeline({
       targets: [targets, targets.querySelector('.image')],
-      delay: anime.stagger(125, { direction }),
+      delay: anime.stagger(delay, { direction }),
       duration,
       easing,
     })

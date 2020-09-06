@@ -25,7 +25,6 @@ export class Author {
   }
 
   get img() {
-    // :TODO: ~config paths.public.image
     return `images/author-${this.id}.jpg`;
   }
 

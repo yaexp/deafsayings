@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import {
   Icon,
   Logo,
-} from '~/src/components';
+} from '~/components';
 
 import './warning-screen.scss';
 

@@ -1,6 +1,6 @@
 @import '~styles/main-utils';
 
-@import './deafsayings.json';
+@import './deafsayings.scss.json';
 
 $desktop-width: unquote('#{map-get($desktopScreen, 'width')}px');
 $desktop-height: unquote('#{map-get($desktopScreen, 'height')}px');
@@ -16,7 +16,6 @@ $image-width: 228px;
   height: 100%;
   width: 100%;
 
-  background-color: rgba($color-main, $opacity);
   background-color: color-rgba('main', $opacity);
 
   transition: background-color $duration ease-in-out;
@@ -61,10 +60,8 @@ $image-width: 228px;
   position: relative;
 
   border: ($border-width/2) solid;
-  border-color: rgba($color-main, 0.12);
   border-color: color-rgba('main', 0.12);
 
-  color: $color-main;
   color: color-rgb('main');
 
   height: 100%;
@@ -257,18 +254,15 @@ $image-width: 228px;
   width: $image-width;
   height: 100%;
 
-  background-color: rgba($color-main, 0.12);
   background-color: color-rgba('main', 0.12);
 
   z-index: 10;
 
   > * {
     position: absolute;
-    right: -$border-width;
-    top: -$border-width;
 
-    height: calc(100% + #{$border-width * 2});
-    width: calc(100% + #{$border-width});
+    height: 100%;
+    width: 100%;
 
     * {
       height: 100%;

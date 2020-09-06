@@ -17,7 +17,6 @@ const useImageChange = ({ src }) => {
   useEffect(() => {
     if(src !== prevSrc) {
       setIsLoading(true);
-      setImageMessage('Loading ...');
     }
   }, [src]);
 

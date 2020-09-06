@@ -1,7 +1,7 @@
 import quotes from '~/mockdata/quotes.data.json';
 import authors from '~/mockdata/authors.data.json';
 
-import { Quote } from '~/src/models/quote.model';
+import { Quote } from '~/models/quote.model';
 
 export const getQuotes = () => {
   return quotes.map((quote) => {

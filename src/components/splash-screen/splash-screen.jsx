@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Logo } from '~/src/components';
+import { Logo } from '~/components';
 
-import { loadedDelay as LOADED_DELAY } from './splash-screen.variables.json';
+import { loadedDelay as LOADED_DELAY } from './splash-screen.scss.json';
 
 import './splash-screen.scss';
 

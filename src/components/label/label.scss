@@ -10,10 +10,7 @@
   line-height: $font-height-condensed-ultra;
   text-decoration: none;
 
-  background-color: rgba($color-main, $btn-bg-opacity);
   background-color: color-rgba('main', $btn-bg-opacity);
-
-  color: $color-main;
   color: color-rgb('main');
 
   > * {
@@ -24,7 +21,6 @@
     transition: background-color 250ms ease-in-out;
 
     &:hover {
-      background-color: rgba($color-main, $btn-bg-opacity-hover);
       background-color: color-rgba('main', $btn-bg-opacity-hover);
 
       transition:
@@ -35,7 +31,6 @@
     &:focus {
       outline: 0;
 
-      background-color: rgba($color-main, $btn-bg-opacity-focus);
       background-color: color-rgba('main', $btn-bg-opacity-focus);
 
       &::after {
@@ -58,7 +53,6 @@
     }
 
     &:active {
-      background-color: rgba($color-main, $btn-bg-opacity-selected);
       background-color: color-rgba('main', $btn-bg-opacity-selected);
     }
   }

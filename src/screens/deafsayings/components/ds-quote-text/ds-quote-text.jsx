@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { BlockEffect } from '~/src/components';
+import { BlockEffect } from '~/components';
 
 import './ds-quote-text.scss';
 

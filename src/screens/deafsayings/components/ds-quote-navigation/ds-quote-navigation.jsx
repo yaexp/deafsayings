@@ -2,10 +2,10 @@ import React, { useState, useRef   } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { getQuote } from '~/src/services/quote.service';
+import { getQuote } from '~/services/quote.service';
 
-import { Icon, BlockEffect } from '~/src/components';
-import { useWait } from '~/src/hooks';
+import { Icon, BlockEffect } from '~/components';
+import { useWait } from '~/hooks';
 
 import './ds-quote-navigation.scss';
 

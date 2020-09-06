@@ -7,8 +7,8 @@ import React, {
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { useWait } from '~/src/hooks';
-import { getTextFromNode } from '~/src/utils';
+import { useWait } from '~/hooks';
+import { getTextFromNode } from '~/utils';
 
 import * as effects from './effects';
 import { splitLines } from './block-effect.helper';
@@ -16,7 +16,7 @@ import { splitLines } from './block-effect.helper';
 import {
   startAnimationLength as START_ANIMATION_LENGTH,
   endAnimationLength as END_ANIMATION_LENGTH,
-} from './block-effect.variables.json';
+} from './block-effect.scss.json';
 
 import './block-effect.scss';
 
