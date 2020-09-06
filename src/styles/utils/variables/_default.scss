@@ -4,6 +4,7 @@
 $color-background: map-deep-get($colors, 'light', 'background') !default;
 $color-background-l1: map-deep-get($colors, 'light', 'background-l1') !default;
 $color-main: map-deep-get($colors, 'light', 'main') !default;
+
 $color-focus: color-rgb('main') !default;
 
 
@@ -81,7 +82,7 @@ $body-family: $font-family-primary !default;
 $body-size: $font-size !default;
 $body-line-height: $font-height-default !default;
 $body-weight: $font-weight-normal !default;
-$body-color: $color-main !default;
+$body-color: color-rgb('main') !default;
 
 // Heading
 //

@@ -28,6 +28,7 @@ export const isProduction = !!((argv.env && argv.env.production) || argv.p);
 
 const defaultPaths = {};
 defaultPaths.rootPath = process.cwd();
+defaultPaths.publicUrl = '';
 defaultPaths.devFolder = 'src';
 defaultPaths.prodFolder = 'dist';
 defaultPaths.assetsFolder = 'public';
@@ -75,6 +76,9 @@ defaultConfig.enabled = {
 // config.webpack
 defaultConfig.webpack = {
   mode: defaultConfig.env,
+  output: {
+    publicPath: paths.publicUrl || '',
+  },
   resolve: {
     alias: {
       'styles': path.join(paths.root.dev, 'styles'),
@@ -122,7 +126,3 @@ defaultConfig.webpack = {
 };
 
 export const config = merge(defaultConfig, userConfig.config);
-
-if (process.env.NODE_ENV === undefined) {
-  process.env.NODE_ENV = config.env;
-}

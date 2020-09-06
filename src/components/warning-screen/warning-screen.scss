@@ -14,17 +14,12 @@
   height: 100%;
   overflow: auto;
 
-  background-color: $color-background;
   background-color: color-rgb('background');
 
   z-index: 1;
 
   padding-left: 1em;
   padding-right: 1em;
-
-  > * {
-    opacity: 0.5;
-  }
 }
 
 .warning-screen__icon {
@@ -43,4 +38,6 @@
   bottom: map-get($spacers, 8);
 
   transform: translateX(-50%);
+
+  opacity: 0.5;
 }

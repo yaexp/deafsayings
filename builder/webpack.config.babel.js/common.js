@@ -1,3 +1,4 @@
+import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
@@ -16,7 +17,7 @@ export default (paths, config) => {
     context: paths.root.dev,
     output: {
       path: paths.root.prod,
-      publicPath: config.webpack.publicPath || '',
+      publicPath: paths.publicUrl,
       filename: `${paths.scriptsFolder}/${assetsFilenames}.js`,
     },
     module: {
@@ -43,7 +44,6 @@ export default (paths, config) => {
             { loader: 'cache-loader' },
             { loader: 'css-loader', options: { sourceMap: config.enabled.sourceMaps } },
             { loader: 'postcss-loader', options: { config: { path: __dirname, ctx: config } } },
-            // { loader: 'resolve-url-loader' },
             { loader: 'sass-loader', options: { sassOptions: { importer: [jsonImporter(), globImporter()] } }},
           ],
         },
@@ -133,6 +133,10 @@ export default (paths, config) => {
             coast: false,
           },
         },
+      }),
+      new webpack.EnvironmentPlugin({
+        NODE_ENV: config.env,
+        PUBLIC_URL: paths.publicUrl,
       }),
     ],
   }, config.webpack);

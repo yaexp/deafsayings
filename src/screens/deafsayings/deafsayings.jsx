@@ -152,7 +152,7 @@ const DeafSayings = () => {
             delayOut={100}
             deps={ [quote.author.id] }
           >
-            <Image src={quote.author.img} />
+            <Image src={ process.env.PUBLIC_URL + quote.author.img} />
           </BlockEffect>
         </div>
         <div className="deafsayings__author">
